@@ -1,31 +1,27 @@
-// import logo from './logo.svg';
-// import './App.css';
 import React from 'react';
+import Login from './pages/Login';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useRouteMatch,
+  useParams
 } from "react-router-dom";
-import Login from './pages/Login';
 
-class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
-  render() {
-    return (
+export default class App extends React.Component {
+  
+  render(){
+    return(
       <Router>
-        <Switch>
-          <Router path="/">
-            <Login />
-          </Router>
-        </Switch>
+            <Switch>
+        <Route path="/Login">
+          <Login />
+        </Route>
+        
+      </Switch>
       </Router>
     )
   }
-  
 }
-
-export default App;
