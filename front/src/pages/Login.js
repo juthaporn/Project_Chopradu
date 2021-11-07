@@ -1,5 +1,7 @@
 import React from 'react';
 // import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 class Login extends React.Component{
     
     // (function ($) {
@@ -69,39 +71,20 @@ class Login extends React.Component{
                                     <input class="input100" type="text" name="username" placeholder="Username"/>
                                     <span class="focus-input100"></span>
                                 </div>
-                                
-                                
+                                                                
                                 <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
                                     <input class="input100" type="password" name="pass" placeholder="Password"/>
                                     <span class="focus-input100"></span>
                                 </div>
-                                
-                                {/* <div class="flex-sb-m w-full p-t-3 p-b-24">
-                                    <div class="contact100-form-checkbox">
-                                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"/>
-                                        <label class="label-checkbox100" for="ckb1">
-                                            Remember me
-                                        </label>
-                                    </div>
-
-                                    <div>
-                                        <a href="#" class="txt1">
-                                            Forgot?
-                                        </a>
-                                    </div>
-                                </div> */}
 
                                 <div class="flex-sb-m w-full p-t-3 p-b-24">
                                     <div class="container-login100-form-btn m-t-17">
                                         <button class="login100-form-btn">
                                             เข้าสู่ระบบ
-                                        </button>
+                                        </button>&nbsp;&nbsp;
+                                        <Link to="/Register"><h2>ลงทะเบียน</h2></Link>
                                     </div>
-                                    <div>
-                                        <a href="#" class="txt1">
-                                            ลงทะเบียน
-                                        </a>
-                                    </div>
+
                                 </div>
                             </form>
                         </div>
