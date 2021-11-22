@@ -1,100 +1,86 @@
 import React from 'react';
-// import axios from 'axios';
-import { Link } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
+// import HomePage from '../Pages/HomePage';
 
-class Login extends React.Component{
-    
-    // (function ($) {
-    //     "use strict";
+class Login extends React.Component {
+    constructor(props){
+        super(props);
+        this.state={
+            username:'',
+            password:'',
+            redirect: null
+        };
+    }
+    handleSubmit = (event) =>{
+        event.preventDefault();
+        console.log(this.state);
+        if(this.state.username == 'Jpum@hotmail.com' && this.state.password == '1234'){
+            alert('Yes');
+            this.setState({
+                redirect: true
+            });
 
-    //     var input = $('.validate-input .input100');
-    
-    //     $('.validate-form').on('submit',function(){
-    //         var check = true;
-    
-    //         for(var i=0; i<input.length; i++) {
-    //             if(validate(input[i]) == false){
-    //                 showValidate(input[i]);
-    //                 check=false;
-    //             }
-    //         }
-    
-    //         return check;
-    //     });
-        
-    //     $('.validate-form .input100').each(function(){
-    //         $(this).focus(function(){
-    //            hideValidate(this);
-    //         });
-    //     });
-    
-    //     function validate (input) {
-    //         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-    //             if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-    //                 return false;
-    //             }
-    //         }
-    //         else {
-    //             if($(input).val().trim() == ''){
-    //                 return false;
-    //             }
-    //         }
-    //     }
-    
-    //     function showValidate(input) {
-    //         var thisAlert = $(input).parent();
-    
-    //         $(thisAlert).addClass('alert-validate');
-    //     }
-    
-    //     function hideValidate(input) {
-    //         var thisAlert = $(input).parent();
-    
-    //         $(thisAlert).removeClass('alert-validate');
-    //     }
+        }else{
+            alert('No');
+        }
+    }
+    handleChange = event => {
+        let name = event.target.name;
+        let value = event.target.value;
+        this.setState({[name]:value})
+    }
 
-    // })(jQuery);
-
-    render(){
-        return(
-            <main>
-                <div class="limiter">
-                    <div class="container-login100">
-                        <div class="wrap-login100 p-t-50 p-b-90">
-                            <form class="login100-form validate-form flex-sb flex-w">
-                                {/* <span class="login100-form-title p-b-51">
-                                    Login
-                                </span> */}
-
-                                
-                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-                                    <input class="input100" type="text" name="username" placeholder="Username"/>
-                                    <span class="focus-input100"></span>
-                                </div>
-                                                                
-                                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-                                    <input class="input100" type="password" name="pass" placeholder="Password"/>
-                                    <span class="focus-input100"></span>
-                                </div>
-
-                                <div class="flex-sb-m w-full p-t-3 p-b-24">
-                                    <div class="container-login100-form-btn m-t-17">
-                                        <button class="login100-form-btn">
-                                            เข้าสู่ระบบ
-                                        </button>&nbsp;&nbsp;
-                                        <Link to="/Register"><h2>ลงทะเบียน</h2></Link>
-                                    </div>
-
-                                </div>
-                            </form>
+    render() {
+        if(this.state.redirect){
+            return <Redirect to="/" />
+        }
+        return (
+            <section class="login_box_area section_gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="login_box_img">
+                            <img class="img-fluid" src="img/login.jpg" alt=""/>
+                            <div class="hover">
+                                <h4>New to our website?</h4>
+                                <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+                                <a class="primary-btn" href="registration.html">Create an Account</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </main>
-                
-        )
+				<div class="col-lg-6">
+					<div class="login_form_inner">
+						<h3>Log in to enter</h3>
+						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'"/>
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"/>
+							</div>
+							<div class="col-md-12 form-group">
+								<div class="creat_account">
+									<input type="checkbox" id="f-option2" name="selector"></input>
+									<label for="f-option2">Keep me logged in</label>
+								</div>
+							</div>
+							<div class="col-md-12 form-group">
+								<button type="submit" value="submit" class="primary-btn">Log In</button>
+								<a href="#">Forgot Password?</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+        </section>
+        );
     }
 }
-
-
 export default Login;

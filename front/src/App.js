@@ -1,37 +1,102 @@
 import React from 'react';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+// import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  useRouteMatch,
-  useParams
+  Link
 } from "react-router-dom";
 
+// import Shop from './pages/Shop';
+import Product from './pages/Product';
+import Home from './pages/Home';
+import Create from './pages/Create';
+import Register from './pages/Resigter';
+import Singin from './pages/Singin';
+import Edit_Prodct from './pages/Edit_Product';
+import CreateAdd from './pages/Address';
+import Profile from './pages/Profile';
+import Women from './pages/WomenProduct';
+import Men from './pages/MenProduct';
+import Basket from './pages/Basket';
+import Confirm from './pages/ConfirmPay';
+import Payment from './pages/Payment';
 
+class App extends React.Component {
 
-export default class App extends React.Component {
-  
+  constructor(props){
+    super(props);
+  }
   render(){
     return(
+
       <Router>
-          <Switch>
-            
-            <Route path="/Login">
-              <Login />
-            </Route>
-            <Route path="/Register">
-              <Register />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-      </Switch>
+        <Header />
+
+        <Switch>
+          <Route path="/Create">
+            <Create />
+          </Route>
+          <Route path="/edit_products/:product_id" component={Edit_Prodct} />
+
+          <Route path="/product">
+            <Product />
+          </Route>
+          <Route path="/Women">
+            <Women />
+          </Route>
+          <Route path="/Men">
+            <Men />
+          </Route>
+          <Route path="/Basket">
+            <Basket />
+          </Route>
+          <Route path="/Register">
+            <Register />
+          </Route>
+          <Route path="/Singin">
+            <Singin />
+          </Route>
+          <Route path="/Edit_Prodct">
+            <Edit_Prodct />
+          </Route>
+          <Route path="/CreateAdd">
+            <CreateAdd />
+          </Route>
+          <Route path="/Profile">
+            <Profile />
+          </Route>
+          <Route path="/Payment">
+            <Payment />
+          </Route>
+          <Route path="/Confirm">
+            <Confirm />
+          </Route>
+
+
+          {/* <Route path="/basket">
+            <Basket />
+          </Route> */}
+          {/* <Route path="/menShoes">
+            <MenShoes />
+          </Route> */}
+          {/* <Route path="/shop">
+            <Shop />
+          </Route> */}
+          {/* <Route path="/covid">
+            <Covid />
+          </Route> */}
+          <Route path="/">
+            <Home />
+          </Route>
+          
+        </Switch>
+        {/* <Footer /> */}
       </Router>
-    )
+      
+    );  
   }
 }
+export default App;

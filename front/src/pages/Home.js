@@ -1,16 +1,25 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+// import Video from './../components/Video';
+// import Gallery from './../components/Gallery';
+
 
 class Home extends React.Component{
+
+    constructor(props){
+        super(props);
+        
+    }
+
     render(){
         return(
             <main>
-                <div>kkk</div>
-                <Link to="/Login">Login</Link>
+                    {/* <Gallery />    */}
+                   
             </main>
             
         )
     }
+
 }
 
 export default Home;
