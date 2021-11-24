@@ -9,10 +9,7 @@ class Resigter extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            firstname: '',
-            lastname: '',
-            image:'',
-            address: '',
+            name: '',
             tel: '',
             username: '',
             password: ''
@@ -28,15 +25,15 @@ class Resigter extends React.Component{
         });
       }
   
-      handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('http://localhost:3000/admin/add-user', this.state).then(res => {
-          console.log(res);
-          alert('Susscess');
-        }).catch(error => {
-          console.log(error);
-        });
-      }
+    //   handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     axios.post('http://localhost:3000/admin/add-user', this.state).then(res => {
+    //       console.log(res);
+    //       alert('Susscess');
+    //     }).catch(error => {
+    //       console.log(error);
+    //     });
+    //   }
 
     render(){
         return(
@@ -48,24 +45,12 @@ class Resigter extends React.Component{
                                 <h3 class="mb-4">Sign Up</h3>
                                 <form onSubmit={this.handleSubmit}>
                                     <div class="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" name="firstname" class="form-control" placeholder="Firstname" onChange={this.handleChange} />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" name="lastname" class="form-control" placeholder="Lastname" onChange={this.handleChange} />
-                                    </div>
-                                    <div class="form-group">
-                                    <label>Image</label>
-                                        <input type="text" name="image" class="form-control" placeholder="url image" onChange={this.handleChange} />
+                                        <label>Name</label>
+                                        <input type="text" name="name" class="form-control" placeholder="Name" onChange={this.handleChange} />
                                     </div>
                                     <div class="form-group">
                                         <label>Phone number</label>
                                         <input type="text" name="tel" class="form-control" placeholder="+66" onChange={this.handleChange} />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input type="text" name="address" class="form-control" placeholder="address" onChange={this.handleChange} />
                                     </div>
                                     <div class="form-group">
                                         <label>Username</label>

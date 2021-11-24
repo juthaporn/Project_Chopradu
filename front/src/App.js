@@ -16,11 +16,10 @@ import Create from './pages/Create';
 import Register from './pages/Resigter';
 import Singin from './pages/Singin';
 import Edit_Prodct from './pages/Edit_Product';
-import CreateAdd from './pages/Address';
 import Profile from './pages/Profile';
 import Women from './pages/WomenProduct';
 import Men from './pages/MenProduct';
-import Basket from './pages/Basket';
+// import Basket from './pages/Basket';
 import Confirm from './pages/ConfirmPay';
 import Payment from './pages/Payment';
 
@@ -50,9 +49,9 @@ class App extends React.Component {
           <Route path="/Men">
             <Men />
           </Route>
-          <Route path="/Basket">
+          {/* <Route path="/Basket">
             <Basket />
-          </Route>
+          </Route> */}
           <Route path="/Register">
             <Register />
           </Route>
@@ -61,9 +60,6 @@ class App extends React.Component {
           </Route>
           <Route path="/Edit_Prodct">
             <Edit_Prodct />
-          </Route>
-          <Route path="/CreateAdd">
-            <CreateAdd />
           </Route>
           <Route path="/Profile">
             <Profile />
@@ -75,19 +71,6 @@ class App extends React.Component {
             <Confirm />
           </Route>
 
-
-          {/* <Route path="/basket">
-            <Basket />
-          </Route> */}
-          {/* <Route path="/menShoes">
-            <MenShoes />
-          </Route> */}
-          {/* <Route path="/shop">
-            <Shop />
-          </Route> */}
-          {/* <Route path="/covid">
-            <Covid />
-          </Route> */}
           <Route path="/">
             <Home />
           </Route>
