@@ -69,7 +69,7 @@ router.get('/order',orderController.getOrder);
 
 router.post('/add-order',orderController.createOrder);
 
-router.get('/edit-order/:order_id',orderController.getEditOrder);
+router.get('/edit-order/:orderID',orderController.getEditOrder);
 
 router.post('/edit-order',orderController.editOrder);
 
