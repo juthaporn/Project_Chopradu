@@ -29,6 +29,12 @@ router.get('/edit-member/:member_id',memberController.getEditMember);
 router.get('/edit-member',memberController.editMember);
 
 
+//user
+router.get('/add-user',userController.createUser);
+
+router.get('/user',userController.getUser);
+
+
 //shop
 router.get('/shop', shopController.getShop);
 
