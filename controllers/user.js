@@ -17,8 +17,8 @@ exports.createUser = (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
     
-    const member = new Member(null, username, password);
-    member.save().then(() => {
+    const user = new User(null, username, password);
+    user.save().then(() => {
         res.status(200).json({
             "message": "success",
             "result": true

@@ -28,7 +28,7 @@ module.exports = class Member{
 
     static findById(memberID){
         return db.execute(
-            'select * from user where memberID = ?',
+            'select * from member where memberID = ?',
             [this.memberID]
         );
     }

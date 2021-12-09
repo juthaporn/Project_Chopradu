@@ -1,10 +1,10 @@
-const Member = require('../models/member');
+const Shop = require('../models/shop');
 
-exports.getMember = (req, res, next) => {
-    Member.findAll().then(member => {
+exports.getShop = (req, res, next) => {
+    Shop.findAll().then(shop => {
         res.status(200).json({
             "message": "success",
-            "data": member[0]
+            "data": shop[0]
         });
     }).catch(error => {
         res.status(500).json({
@@ -13,14 +13,18 @@ exports.getMember = (req, res, next) => {
     });
 }
 
-exports.createMember = (req, res, next) => {
-    const memberName = req.body.memberName;
-    const memberPhone = req.body.memberPhone;
-    // const username = req.body.username;
-    // const password = req.body.password;
+exports.createShop = (req, res, next) => {
+    const ShopName = req.body.ShopberName;
+    const ShopPhone = req.body.ShopPhone;
+    const shopDetail = req.body.shopDetail;
+    const OpeningTime = req.body.OpeningTime;
+    const ShopType = req.body.ShopType;
+    const payRent = req.body.payRent;
+    const shopRating = req.body.shopRating;
+    const shopRentalContract = req.body.shopRentalContract;
     
-    const member = new Member(null, memberName, memberPhone);
-    member.save().then(() => {
+    const shop = new Shop(null, ShopName, ShopPhone, shopDetail, OpeningTime, ShopType, payRent, shopRating, shopRentalContract);
+    shop.save().then(() => {
         res.status(200).json({
             "message": "success",
             "result": true
@@ -33,24 +37,6 @@ exports.createMember = (req, res, next) => {
     });
 }
 
-// exports.createAddress = (req, res, next) => {
-//     const firstname = req.body.firstname;
-//     const lastname = req.body.lastname;
-//     const address = req.body.address;
-    
-//     const user = new User(null, firstname, lastname, address);
-//     user.save().then(() => {
-//         res.status(200).json({
-//             "message": "success",
-//             "result": true
-//         });
-//     }).catch((error) => {
-//         res.status(200).json({
-//             "message": error,
-//             "result": false
-//         });
-//     });
-// }
 
 // exports.getEditAddress = (req, res, next) => {
 //     const user_id = req.params.user_id;
