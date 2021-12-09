@@ -25,15 +25,15 @@ class Resigter extends React.Component{
         });
       }
   
-    //   handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     axios.post('http://localhost:3000/admin/add-user', this.state).then(res => {
-    //       console.log(res);
-    //       alert('Susscess');
-    //     }).catch(error => {
-    //       console.log(error);
-    //     });
-    //   }
+      handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:3000/user/add-user', this.state).then(res => {
+          console.log(res);
+          alert('Susscess');
+        }).catch(error => {
+          console.log(error);
+        });
+      }
 
     render(){
         return(
@@ -50,7 +50,7 @@ class Resigter extends React.Component{
                                     </div>
                                     <div class="form-group">
                                         <label>Phone number</label>
-                                        <input type="text" name="tel" class="form-control" placeholder="+66" onChange={this.handleChange} />
+                                        <input type="text" name="phone" class="form-control" placeholder="+66" onChange={this.handleChange} />
                                     </div>
                                     <div class="form-group">
                                         <label>Username</label>

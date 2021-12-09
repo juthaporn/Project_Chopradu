@@ -12,7 +12,7 @@ import {
 // import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Home from './pages/Home';
-import Create from './pages/Create';
+import Create from './pages/AddOwner';
 import Register from './pages/Resigter';
 import Singin from './pages/Singin';
 import Edit_Prodct from './pages/Edit_Product';
@@ -23,6 +23,9 @@ import Men from './pages/MenProduct';
 import Confirm from './pages/ConfirmPay';
 import Payment from './pages/Payment';
 import Admin from './pages/AdminHome';
+import AddOwner from './pages/AddOwner';
+import TypeFood from './pages/TypeFood';
+import AddTypeFood from './pages/AddTypeFood';
 // import Login from './pages/Login';
 
 class App extends React.Component {
@@ -75,9 +78,15 @@ class App extends React.Component {
           <Route path="/Admin">
             <Admin />
           </Route>
-          {/* <Route path="/Login">
-            <Login />
-          </Route> */}
+          <Route path="/AddOwner">
+            <AddOwner />
+          </Route>
+          <Route path="/TypeFood">
+            <TypeFood />
+          </Route>
+          <Route path="/AddTypeFood">
+            <AddTypeFood />
+          </Route>
 
           <Route path="/">
             <Home />

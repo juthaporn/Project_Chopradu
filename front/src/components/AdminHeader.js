@@ -48,9 +48,9 @@ class Header extends React.Component{
                                                     <li><Link to="/Admin">Home</Link></li>  
                                                     <li><Link to="/">Shop</Link>
                                                         <ul class="submenu">
-                                                            <li><Link to="/">เพิ่มผู้ประกอบการ</Link></li>
+                                                            <li><Link to="/AddOwner">เพิ่มผู้ประกอบการ</Link></li>
                                                             <li><Link to="/">ค่าเช่าร้าน</Link></li>
-                                                            <li><Link to="/">ประเภทอาหาร</Link></li>
+                                                            <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
                                                         </ul>
                                                     </li>
                                                     <li><Link to="/product">Order</Link></li>
