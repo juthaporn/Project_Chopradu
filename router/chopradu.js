@@ -2,13 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 //ownerShop
-router.get('/add-owner',ownerController.createOwner);
+router.get('/add-owner',ownerController.createShopOwner);
 
-router.get('/owner',ownerController.getOwner);
+router.get('/owner',ownerController.getShopOwner);
 
-router.get('/edit-owner/:owner_id',ownerController.getEditOwner);
-
-router.get('/edit-owner',ownerController.editOwner);
+// router.get('/edit-owner/:owner_id',ownerController.getEditOwner);
+// router.get('/edit-owner',ownerController.editOwner);
 
 
 //Admin
@@ -24,9 +23,8 @@ router.get('/add-member',memberController.createMember);
 
 router.get('/member',memberController.getMember);
 
-router.get('/edit-member/:member_id',memberController.getEditMember);
-
-router.get('/edit-member',memberController.editMember);
+// router.get('/edit-member/:member_id',memberController.getEditMember);
+// router.get('/edit-member',memberController.editMember);
 
 
 //user
@@ -47,6 +45,12 @@ router.post('/edit-shop', shopController.editShop);
 // router.get('/delete-shop', shopController.deleteShop);
 
 
+//rent
+router.get('/add-rent',rentController.createRent);
+
+router.get('/rent',rentController.getRent);
+
+
 // prodcts
 router.get('/products', productController.getProduct);
 
@@ -58,15 +62,14 @@ router.post('/edit-products', productController.editProduct);
 
 // router.get('/delete-products', productController.deleteProduct);
 
+
 //productType
 router.get('/productsType', productController.getProductType);
 
 router.post('/add-productsType', productController.createProductType);
 
 // router.get('/edit-productsType/:productType_id', productController.getEditProductType);
-
 // router.post('/edit-productsType', productController.editProductType);
-
 // router.get('/delete-productsType', productController.deleteProductType);
 
 

@@ -27,12 +27,12 @@ class Signin extends React.Component{
         e.preventDefault();
         // axios.post('http://localhost:3000/admin/add-user', this.state).then(res => {
         //   console.log(res);
-        if(this.state.username == 'user' && this.state.password == '1234'){
-           alert('Susscess'); 
-        }  
-        else{
-            alert('Unsusscess');
-        }  
+        // if(this.state.username == 'user' && this.state.password == '1234'){
+        //    alert('Susscess'); 
+        // }  
+        // else{
+        //     alert('Unsusscess');
+        // }  
         // }).catch(error => {
         //   console.log(error);
         // });
@@ -50,14 +50,14 @@ class Signin extends React.Component{
                             <form onSubmit={this.handleSubmit}>
                             <div class="form-group">
                                 <label>Username</label>
-                                <input name="text" class="form-control" placeholder="username" onChange={this.handleChange} />
+                                <input name="text" class="form-control" placeholder="username"  required />
                             </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input name="password" type="password" class="form-control" placeholder="Password" onChange={this.handleChange} />
+                            <input name="password" type="password" class="form-control" placeholder="Password" required />
                         </div>
                         <div class="form-group d-flex justify-content-end mt-5">
-                            <button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane"></span></button>
+                            <a href='/Admin' button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane"> </span></a>
                         </div>
                     </form>
                     <p class="text-center">Don't have an account? <Link to="/Register">Sign Up</Link></p>

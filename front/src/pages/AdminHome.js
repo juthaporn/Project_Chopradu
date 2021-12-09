@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
+import AdminHeader from '../components/AdminHeader';
 
 
 class Home extends React.Component{
@@ -32,7 +32,7 @@ class Home extends React.Component{
     render(){
         return(
             <main>
-              <Header />
+              <AdminHeader />
                 <div class="container">
                 <div className="row">
                   <div className="col-md-12">

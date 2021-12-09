@@ -45,10 +45,16 @@ class Header extends React.Component{
                                         <div class="main-menu d-none d-lg-block">
                                             <nav>                                                
                                                 <ul id="navigation">  
-                                                    <li><Link to="/">Home</Link></li>
-                                                    <li><Link to="/create">Creat</Link></li>    
-                                                    <li><Link to="/product">Product</Link>
+                                                    <li><Link to="/Admin">Home</Link></li>  
+                                                    <li><Link to="/">Shop</Link>
+                                                        <ul class="submenu">
+                                                            <li><Link to="/">เพิ่มผู้ประกอบการ</Link></li>
+                                                            <li><Link to="/">ค่าเช่าร้าน</Link></li>
+                                                            <li><Link to="/">ประเภทอาหาร</Link></li>
+                                                        </ul>
                                                     </li>
+                                                    <li><Link to="/product">Order</Link></li>
+                                                    
                                                 </ul>
                                             </nav>
                                         </div>
@@ -56,15 +62,10 @@ class Header extends React.Component{
                                             <ul>
                                                 <li><input type="text" name="description" class="form-control" placeholder="Search.." onChange={this.handleChange} /></li>
                                                 <li><span class="flaticon-search"></span></li>
-                                                {/* <li> <button type ="submit" name="submit" class="btn btn-primary btn-block">Search</button></li> */}
-                                                {/* <li><a href="/basket"><span class="flaticon-shopping-cart"></span></a> </li> */}
-                                                <li> <Link to="/Singin">Sign In</Link></li>
+                                                <li><Link to="/"><span class="flaticon-user"></span></Link></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    {/* <div class="col-12">
-                                        <div class="mobile_menu d-block d-lg-none"></div>
-                                    </div> */}
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/Header';
+// import Header from './components/Header';
 // import Footer from './components/Footer';
 import {
   BrowserRouter as Router,
@@ -22,6 +22,8 @@ import Men from './pages/MenProduct';
 // import Basket from './pages/Basket';
 import Confirm from './pages/ConfirmPay';
 import Payment from './pages/Payment';
+import Admin from './pages/AdminHome';
+// import Login from './pages/Login';
 
 class App extends React.Component {
 
@@ -32,7 +34,7 @@ class App extends React.Component {
     return(
 
       <Router>
-        <Header />
+        {/* <Header /> */}
 
         <Switch>
           <Route path="/Create">
@@ -70,6 +72,12 @@ class App extends React.Component {
           <Route path="/Confirm">
             <Confirm />
           </Route>
+          <Route path="/Admin">
+            <Admin />
+          </Route>
+          {/* <Route path="/Login">
+            <Login />
+          </Route> */}
 
           <Route path="/">
             <Home />

@@ -20,11 +20,11 @@ class Login extends React.Component {
     handleSubmit = (event) =>{
         event.preventDefault();
         console.log(this.state);
-        if(this.state.username == 'Jpum@hotmail.com' && this.state.password == '1234'){
+        if(this.state.username == 'admin01' && this.state.password == '1234'){
             alert('Yes');
-            this.setState({
-                redirect: true
-            });
+            // this.setState({
+            //     redirect: true
+            // });
 
         }else{
             alert('No');
@@ -44,7 +44,7 @@ class Login extends React.Component {
             <section class="login_box_area section_gap">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    {/* <div class="col-lg-6">
                         <div class="login_box_img">
                             <img class="img-fluid" src="img/login.jpg" alt=""/>
                             <div class="hover">
@@ -53,16 +53,16 @@ class Login extends React.Component {
                                 <a class="primary-btn" href="registration.html">Create an Account</a>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Log in to enter</h3>
 						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'"/>
+								<input type="text" class="form-control" id="username" name="name" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'"/>
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"/>
+								<input type="text" class="form-control" id="password" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"/>
 							</div>
 							<div class="col-md-12 form-group">
 								<div class="creat_account">
@@ -72,7 +72,7 @@ class Login extends React.Component {
 							</div>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Log In</button>
-								<a href="#">Forgot Password?</a>
+								{/* <a href="#">Forgot Password?</a> */}
 							</div>
 						</form>
 					</div>
