@@ -17,6 +17,7 @@ exports.createUser = (req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
     
+    
     const user = new User(null, username, password);
     user.save().then(() => {
         res.status(200).json({

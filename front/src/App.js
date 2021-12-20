@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 
 // import Shop from './pages/Shop';
+import Shop from './pages/Owner';
 import Product from './pages/Product';
 import Home from './pages/Home';
 import Create from './pages/AddOwner';
@@ -54,9 +55,9 @@ class App extends React.Component {
           <Route path="/Men">
             <Men />
           </Route>
-          {/* <Route path="/Basket">
-            <Basket />
-          </Route> */}
+          <Route path="/Shop">
+            <Shop />
+          </Route>
           <Route path="/Register">
             <Register />
           </Route>

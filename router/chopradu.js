@@ -1,44 +1,23 @@
 const express = require('express');
 const router = express.Router();
 
-//ownerShop
-router.get('/add-owner',ownerController.createShopOwner);
-
-router.get('/owner',ownerController.getShopOwner);
-
-// router.get('/edit-owner/:owner_id',ownerController.getEditOwner);
-// router.get('/edit-owner',ownerController.editOwner);
-
-
-//Admin
-router.get('/admin',adminController.getAdmin);
-
-router.get('/edit-admin/:admin_id',adminController.getEditAdmin);
-
-router.get('/edit-admin',adminController.editAdmin);
-
-
-//member
-router.get('/add-member',memberController.createMember);
-
-router.get('/member',memberController.getMember);
-
-// router.get('/edit-member/:member_id',memberController.getEditMember);
-// router.get('/edit-member',memberController.editMember);
-
-
 //user
 router.get('/add-user',userController.createUser);
 
 router.get('/user',userController.getUser);
 
+router.get('/edit-user/:userID', userController.getEditUser);
+
+router.post('/edit-user', userController.editUser);
+
+// router.get('/delete-user', userController.deleteUser);
 
 //shop
 router.get('/shop', shopController.getShop);
 
 router.post('/add-shop', shopController.createShop);
 
-router.get('/edit-shop/:shop_id', shopController.getEditShop);
+router.get('/edit-shop/:shopID', shopController.getEditShop);
 
 router.post('/edit-shop', shopController.editShop);
 
@@ -56,7 +35,7 @@ router.get('/products', productController.getProduct);
 
 router.post('/add-products', productController.createProduct);
 
-router.get('/edit-products/:product_id', productController.getEditProduct);
+router.get('/edit-products/:productID', productController.getEditProduct);
 
 router.post('/edit-products', productController.editProduct);
 

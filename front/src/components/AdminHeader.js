@@ -48,8 +48,8 @@ class Header extends React.Component{
                                                     <li><Link to="/Admin">Home</Link></li>  
                                                     <li><Link to="/">Shop</Link>
                                                         <ul class="submenu">
-                                                            <li><Link to="/AddOwner">เพิ่มผู้ประกอบการ</Link></li>
-                                                            <li><Link to="/">ค่าเช่าร้าน</Link></li>
+                                                            <li><Link to="/AddOwner">ผู้ประกอบการ</Link></li>
+                                                            <li><Link to="/Shop">ร้านค้า</Link></li>
                                                             <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
                                                         </ul>
                                                     </li>
