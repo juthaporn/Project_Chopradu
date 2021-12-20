@@ -7,8 +7,10 @@ class AddOwner extends React.Component {
     constructor(props){
       super(props);
       this.state = {
-        ownerName: '',
-        ownerPhone: ''
+        username: '',
+        password: '',
+        name: '',
+        phone: ''
       }
     }
 
@@ -23,7 +25,7 @@ class AddOwner extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      axios.post('http://localhost:3000/shopOwner/add-owner', this.state).then(res => {
+      axios.post('http://localhost:3000/user/add-user', this.state).then(res => {
         console.log(res);
         alert('Susscess');
       }).catch(error => {
@@ -43,11 +45,19 @@ class AddOwner extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                           <div class="form-group">
                             <label>Name</label>
-                            <input type="text" name="ownerName" class="form-control" placeholder="Name" onChange={this.handleChange} />
+                            <input type="text" name="name" class="form-control" placeholder="Name" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>Phone</label>
-                            <input type="text" name="ownerPhone" class="form-control" placeholder="+66" onChange={this.handleChange} />
+                            <input type="text" name="phone" class="form-control" placeholder="+66" onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Username" onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>Password</label>
+                            <input type="text" name="password" class="form-control" placeholder="password" onChange={this.handleChange} required />
                           </div><br />
                           <button type="submit" class="btn btn-primary">Save</button>
                         </form>

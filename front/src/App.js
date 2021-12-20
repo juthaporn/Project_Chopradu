@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 // import Shop from './pages/Shop';
-import Shop from './pages/Owner';
+import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Home from './pages/Home';
 import Create from './pages/AddOwner';
@@ -20,7 +20,7 @@ import Edit_Prodct from './pages/Edit_Product';
 import Profile from './pages/Profile';
 import Women from './pages/WomenProduct';
 import Men from './pages/MenProduct';
-// import Basket from './pages/Basket';
+import AddShop from './pages/AddShop';
 import Confirm from './pages/ConfirmPay';
 import Payment from './pages/Payment';
 import Admin from './pages/AdminHome';
@@ -87,6 +87,9 @@ class App extends React.Component {
           </Route>
           <Route path="/AddTypeFood">
             <AddTypeFood />
+          </Route>
+          <Route path="/AddShop">
+            <AddShop />
           </Route>
 
           <Route path="/">

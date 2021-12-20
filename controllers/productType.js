@@ -1,4 +1,4 @@
-const ProductType = require('../models/productType');
+const ProductType = require('../util/database');
 
 exports.getProductType = (req, res, next) => {
     ProductType.findAll().then(productType => {

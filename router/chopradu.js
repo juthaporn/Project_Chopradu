@@ -1,19 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const productController = require('../controllers/products');
+const productController = require('../controllers/product');
 const userController = require('../controllers/user');
 const shopController = require('../controllers/shop');
 const productTypeController = require('../controllers/productType');
 const rentController = require('../controllers/rent');
+const orderController = require('../controllers/order');
 
 //user
 router.get('/add-user',userController.createUser);
 
 router.get('/user',userController.getUser);
 
-router.get('/edit-user/:userID', userController.getEditUser);
+// router.get('/edit-user/:userID', userController.getEditUser);
 
-router.post('/edit-user', userController.editUser);
+// router.post('/edit-user', userController.editUser);
 
 // router.get('/delete-user', userController.deleteUser);
 
@@ -22,9 +23,9 @@ router.get('/shop', shopController.getShop);
 
 router.post('/add-shop', shopController.createShop);
 
-router.get('/edit-shop/:shopID', shopController.getEditShop);
+// router.get('/edit-shop/:shopID', shopController.getEditShop);
 
-router.post('/edit-shop', shopController.editShop);
+// router.post('/edit-shop', shopController.editShop);
 
 // router.get('/delete-shop', shopController.deleteShop);
 
@@ -40,9 +41,9 @@ router.get('/products', productController.getProduct);
 
 router.post('/add-products', productController.createProduct);
 
-router.get('/edit-products/:productID', productController.getEditProduct);
+// router.get('/edit-products/:productID', productController.getEditProduct);
 
-router.post('/edit-products', productController.editProduct);
+// router.post('/edit-products', productController.editProduct);
 
 // router.get('/delete-products', productController.deleteProduct);
 

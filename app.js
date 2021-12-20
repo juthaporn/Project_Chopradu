@@ -2,7 +2,7 @@ const express  = require('express');
 const db = require("./util/database");
 const app = express();
 
-const adminChopraduRoutes = require('./routes/chopradu');
+const adminChopraduRoutes = require('./router/chopradu');
 
 app.use(express.json());
 app.use((req, res, next) => {

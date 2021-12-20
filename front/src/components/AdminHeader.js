@@ -46,13 +46,8 @@ class Header extends React.Component{
                                             <nav>                                                
                                                 <ul id="navigation">  
                                                     <li><Link to="/Admin">Home</Link></li>  
-                                                    <li><Link to="/">Shop</Link>
-                                                        <ul class="submenu">
-                                                            <li><Link to="/AddOwner">ผู้ประกอบการ</Link></li>
-                                                            <li><Link to="/Shop">ร้านค้า</Link></li>
-                                                            <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
-                                                        </ul>
-                                                    </li>
+                                                    <li><Link to="/Shop">ร้านค้า</Link></li>
+                                                    <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
                                                     <li><Link to="/product">Order</Link></li>
                                                     
                                                 </ul>

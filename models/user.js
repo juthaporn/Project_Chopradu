@@ -2,10 +2,10 @@ const db = require('../util/database');
 
 module.exports = class User{
 
-    constructor(userID, userName, passWord,name,phone){
+    constructor(userID, username, password,name,phone){
         this.userID = userID;
-        this.userName = userName;
-        this.passWord = passWord;
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.phone = phone;
     }
@@ -17,13 +17,13 @@ module.exports = class User{
     save(){
         if(this.userID){
             return db.execute(
-                'update user set userName=?, passWord=?, name=?, phone=? where userID = ?',
-                [this.userID, this.userName, this.passWord, this.name, this.phone, this.userID]
+                'update user set username=?, password=?, name=?, phone=? where userID = ?',
+                [this.userID, this.username, this.password, this.name, this.phone, this.userID]
             );
         }else{
             return db.execute(
-                'insert into user (userName, passWord, name, phone) values(?,?,?,?)',
-                [this.userName, this.passWord, this.name, this.phone]
+                'insert into user (username, password, name, phone) values(?,?,?,?)',
+                [this.username, this.password, this.name, this.phone]
             );
         }
     }
