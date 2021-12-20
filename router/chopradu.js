@@ -1,5 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const productController = require('../controllers/products');
+const userController = require('../controllers/user');
+const shopController = require('../controllers/shop');
+const productTypeController = require('../controllers/productType');
+const rentController = require('../controllers/rent');
 
 //user
 router.get('/add-user',userController.createUser);
@@ -43,9 +48,9 @@ router.post('/edit-products', productController.editProduct);
 
 
 //productType
-router.get('/productsType', productController.getProductType);
+router.get('/productType', productTypeController.getProductType);
 
-router.post('/add-productsType', productController.createProductType);
+router.post('/add-productType', productTypeController.createProductType);
 
 // router.get('/edit-productsType/:productType_id', productController.getEditProductType);
 // router.post('/edit-productsType', productController.editProductType);

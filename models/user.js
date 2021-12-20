@@ -2,14 +2,12 @@ const db = require('../util/database');
 
 module.exports = class User{
 
-    constructor(userID, userName, passWord, loginStatus, memberID, adminID, ownerID){
+    constructor(userID, userName, passWord,name,phone){
         this.userID = userID;
         this.userName = userName;
         this.passWord = passWord;
-        this.loginStatus = loginStatus;
-        this.memberID = memberID;
-        this.adminID = adminID;
-        this.ownerID = ownerID;
+        this.name = name;
+        this.phone = phone;
     }
 
     static findAll(){
@@ -19,13 +17,13 @@ module.exports = class User{
     save(){
         if(this.userID){
             return db.execute(
-                'update user set userName=?, passWord=?, loginStatus=?, memberID=?, adminID=?, ownerID=? where userID = ?',
-                [this.userID, this.userName, this.passWord, this.loginStatus, this.memberID, this.adminID, this.ownerID, this.userID]
+                'update user set userName=?, passWord=?, name=?, phone=? where userID = ?',
+                [this.userID, this.userName, this.passWord, this.name, this.phone, this.userID]
             );
         }else{
             return db.execute(
-                'insert into member (userName, passWord, loginStatus, memberID, adminID, ownerID) values(?,?,?,?,?,?)',
-                [this.userName, this.passWord, this.loginStatus, this.memberID, this.adminID, this.ownerID]
+                'insert into user (userName, passWord, name, phone) values(?,?,?,?)',
+                [this.userName, this.passWord, this.name, this.phone]
             );
         }
     }
