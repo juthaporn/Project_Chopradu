@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import AdminHeader from '../components/AdminHeader';
 
 
-class Owner extends React.Component{
+class Shop extends React.Component{
 
     constructor(props){
         super(props);
@@ -21,7 +21,7 @@ class Owner extends React.Component{
   
       getData = () => {
         var x = this;
-        axios.get("http://localhost:3000/admin/owner").then((res) => {
+        axios.get("http://localhost:3000/admin/shop").then((res) => {
           this.setState({data: res.data.data});
           // x.setState({data: res.data.data});
         }).catch((error) => {
@@ -34,25 +34,31 @@ class Owner extends React.Component{
             <main>
               <AdminHeader />
                 <div class="container">
-                <div className="row">
-                <h3 class="mb-4">Shop</h3>
+                <div className="row justify-content-center">
+                <h3 class="mb-4">ร้านค้า</h3>
                   <div className="col-md-12">
                     <form onSubmit={this.handleSubmit}>
-                            <a href='/AddShop' button type="submit" class="btn btn-primary">Add Shop</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href='/AddOwner' button type="submit" class="btn btn-primary">Add Ower</a>
-
                         <table className="table">
+                          <tr>
+                            <th></th>
+                            <th>
+                              <a href='/AddShop' button type="submit" class="btn btn-primary">เพิ่มร้านค้า</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                              <a href='/AddRent' button type="submit" class="btn btn-primary">เพิ่มค่าเช่าร้าน</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                              <a href='/AddOwner' button type="submit" class="btn btn-primary">เพิ่มผู้ประกอบการ</a>
+                            </th>
+                            <th></th>
+                          </tr>    
                             <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th>Shop</th>
+                                <th>ร้านค้า</th>
+                                <th>ชื่อผู้ประกอบการ</th>
                             </tr>
                             {this.state.data.map(item => (
                             // <form onSubmit={this.handleSubmit}> 
                             <tr>
-                                <td><Link to={"/product"+item.product_id}><img src={""+item.image+""} alt="" ></img></Link></td>  
+                                <td></td>  
+                                <td>{item.shopName}</td>
                                 <td>{item.name}</td>
-                                <td>{item.shop}</td>
                             </tr>
                             // </form>  
                                 ))}
@@ -69,4 +75,4 @@ class Owner extends React.Component{
 
 }
 
-export default Owner;
+export default Shop;

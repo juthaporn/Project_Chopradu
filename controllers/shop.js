@@ -14,16 +14,15 @@ exports.getShop = (req, res, next) => {
 }
 
 exports.createShop = (req, res, next) => {
-    const ShopName = req.body.ShopberName;
-    const ShopPhone = req.body.ShopPhone;
+    const shopID = req.body.shopID;
+    const shopName = req.body.shopName;
+    const shopPhone = req.body.shopPhone;
     const shopDetail = req.body.shopDetail;
-    const OpeningTime = req.body.OpeningTime;
-    const ShopType = req.body.ShopType;
-    const payRent = req.body.payRent;
-    const shopRating = req.body.shopRating;
+    const openingTime = req.body.openingTime;
+    const shopType = req.body.shopType;
     const shopRentalContract = req.body.shopRentalContract;
     
-    const shop = new Shop(null, ShopName, ShopPhone, shopDetail, OpeningTime, ShopType, payRent, shopRating, shopRentalContract);
+    const shop = new Shop(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract);
     shop.save().then(() => {
         res.status(200).json({
             "message": "success",

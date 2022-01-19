@@ -17,16 +17,17 @@ import Create from './pages/AddOwner';
 import Register from './pages/Resigter';
 import Singin from './pages/Singin';
 import Edit_Prodct from './pages/Edit_Product';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
 import Women from './pages/WomenProduct';
 import Men from './pages/MenProduct';
 import AddShop from './pages/AddShop';
-import Confirm from './pages/ConfirmPay';
-import Payment from './pages/Payment';
+// import Confirm from './pages/ConfirmPay';
+// import Payment from './pages/Payment';
 import Admin from './pages/AdminHome';
 import AddOwner from './pages/AddOwner';
 import TypeFood from './pages/TypeFood';
 import AddTypeFood from './pages/AddTypeFood';
+import AddRent from './pages/AddRent';
 // import Login from './pages/Login';
 
 class App extends React.Component {
@@ -64,7 +65,7 @@ class App extends React.Component {
           <Route path="/Singin">
             <Singin />
           </Route>
-          <Route path="/Edit_Prodct">
+          {/* <Route path="/Edit_Prodct">
             <Edit_Prodct />
           </Route>
           <Route path="/Profile">
@@ -75,7 +76,7 @@ class App extends React.Component {
           </Route>
           <Route path="/Confirm">
             <Confirm />
-          </Route>
+          </Route> */}
           <Route path="/Admin">
             <Admin />
           </Route>
@@ -90,6 +91,9 @@ class App extends React.Component {
           </Route>
           <Route path="/AddShop">
             <AddShop />
+          </Route>
+          <Route path="/AddRent">
+            <AddRent />
           </Route>
 
           <Route path="/">

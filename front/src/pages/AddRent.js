@@ -3,14 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AdminHeader from '../components/AdminHeader';
 
-class AddOwner extends React.Component {
+class AddRent extends React.Component {
     constructor(props){
       super(props);
       this.state = {
-        username: '',
-        password: '',
-        name: '',
-        phone: ''
+        typeID: '',
+        typeName: ''
       }
     }
 
@@ -25,7 +23,7 @@ class AddOwner extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      axios.post('http://localhost:3000/admin/add-user', this.state).then(res => {
+      axios.post('http://localhost:3000/admin/add-rent', this.state).then(res => {
         console.log(res);
         alert('Susscess');
       }).catch(error => {
@@ -40,24 +38,28 @@ class AddOwner extends React.Component {
                 <div class="container">
                   <div className="row justify-content-center">
                     <div class="col-md-7 col-lg-5">
-                      <h3 class="mb-4">เพิ่มผู้ประกอบการ</h3>
+                      <h3 class="mb-4">เพิ่มค่าเช่าร้าน</h3>
                         {/* <div className="col-md-6"> */}
                         <form onSubmit={this.handleSubmit}>
                           <div class="form-group">
-                            <label>ชื่อผู้ประกอบการ</label>
-                            <input type="text" name="name" class="form-control" placeholder="ชื่อผู้ประกอบการ" onChange={this.handleChange} required />
+                            <label>รายละเอียดค่าเช่า</label>
+                            <input type="text" name="typeID" class="form-control" placeholder="เช่น ค่าไฟหน่วยละ 5.5 บาท ค่าน้ำหน่วยละ 11 บาท" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
-                            <label>เบอร์โทร</label>
-                            <input type="text" name="phone" class="form-control" placeholder="+66" onChange={this.handleChange} required />
+                            <label>ค่ากำจัดขยะ</label>
+                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
-                            <label>ชื่อผู้ใช้งาน</label>
-                            <input type="text" name="username" class="form-control" placeholder="ชื่อผู้ใช้งาน" onChange={this.handleChange} required />
+                            <label>ค่าทำความสะอาด</label>
+                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
-                            <label>รหัสผ่าน</label>
-                            <input type="text" name="password" class="form-control" placeholder="รหัสผ่าน" onChange={this.handleChange} required />
+                            <label>ค่าน้ำ</label>
+                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>ค่าไฟ</label>
+                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
                           </div><br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>
                         </form>
@@ -70,4 +72,4 @@ class AddOwner extends React.Component {
     }
 }
 
-export default AddOwner;
+export default AddRent;

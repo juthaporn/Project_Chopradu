@@ -33,7 +33,7 @@ class Home extends React.Component{
         return(
             <main>
               <AdminHeader />
-                <div class="container">
+                {/* <div class="container">
                 <div className="row">
                   <div className="col-md-12">
                     <form onSubmit={this.handleSubmit}>
@@ -60,7 +60,7 @@ class Home extends React.Component{
                     </form>
                   </div>
                 </div>
-                </div>        
+                </div>         */}
                    
             </main>
             

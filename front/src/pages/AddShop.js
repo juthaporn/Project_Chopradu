@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AdminHeader from '../components/AdminHeader';
 
-class AddOwner extends React.Component {
+class AddShop extends React.Component {
     constructor(props){
       super(props);
       this.state = {
@@ -27,7 +27,7 @@ class AddOwner extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      axios.post('http://localhost:3000/shopOwner/add-shop', this.state).then(res => {
+      axios.post('http://localhost:3000/admin/add-shop', this.state).then(res => {
         console.log(res);
         alert('Susscess');
       }).catch(error => {
@@ -47,29 +47,33 @@ class AddOwner extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                           <div class="form-group">
                             <label>ชื่อร้าน</label>
-                            <input type="text" name="shopName" class="form-control" placeholder="Shop Name" onChange={this.handleChange} />
+                            <input type="text" name="shopName" class="form-control" placeholder="ชื่อร้าน" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>เบอร์โทร</label>
-                            <input type="text" name="shopPhone" class="form-control" placeholder="+66" onChange={this.handleChange} />
+                            <input type="text" name="shopPhone" class="form-control" placeholder="+66" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>คำอธิบาย</label>
-                            <input type="text" name="shopDetail" class="form-control" placeholder="Detail" onChange={this.handleChange} />
+                            <input type="text" name="shopDetail" class="form-control" placeholder="คำอธิบาย" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>เวลาเปิด-ปิด</label>
-                            <input type="text" name="openingTime" class="form-control" placeholder="เช่น 10.00 - 12.00 " onChange={this.handleChange} />
+                            <input type="text" name="openingTime" class="form-control" placeholder="เช่น 10.00 - 12.00 " onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>ประเภทร้านค้า</label>
-                            <input type="text" name="shopType" class="form-control" placeholder="Name" onChange={this.handleChange} />
+                            <input type="text" name="shopType" class="form-control" placeholder="เช่น น้ำ ผลไม้" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>สัญาเช่าร้าน</label>
-                            <input type="text" name="shopRentalContract" class="form-control" placeholder="เช่น 11 มกราคม 2563 - 11 มกราคม 2565" onChange={this.handleChange} />
+                            <input type="text" name="shopRentalContract" class="form-control" placeholder="เช่น 11 มกราคม 2563 - 11 มกราคม 2565" onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>ค่าเช่ารายปี</label>
+                            <input type="text" name="shopRentalContract" class="form-control"  onChange={this.handleChange} required />
                           </div><br />
-                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="submit" class="btn btn-primary">บันทึก</button>
                         </form>
                         {/* </div> */}
                     </div>
@@ -80,4 +84,4 @@ class AddOwner extends React.Component {
     }
 }
 
-export default AddOwner;
+export default AddShop;

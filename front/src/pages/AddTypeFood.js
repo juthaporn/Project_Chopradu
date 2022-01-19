@@ -7,7 +7,6 @@ class AddTypeFood extends React.Component {
     constructor(props){
       super(props);
       this.state = {
-        typeID: '',
         typeName: ''
       }
     }
@@ -23,7 +22,7 @@ class AddTypeFood extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      axios.post('http://localhost:3000/shopOwner/add-owner', this.state).then(res => {
+      axios.post('http://localhost:3000/admin/add-productType', this.state).then(res => {
         console.log(res);
         alert('Susscess');
       }).catch(error => {
@@ -42,14 +41,10 @@ class AddTypeFood extends React.Component {
                         {/* <div className="col-md-6"> */}
                         <form onSubmit={this.handleSubmit}>
                           <div class="form-group">
-                            <label>Type ID</label>
-                            <input type="text" name="typeID" class="form-control" placeholder="ID" onChange={this.handleChange} />
-                          </div>
-                          <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="typeName" class="form-control" placeholder="Name" onChange={this.handleChange} />
+                            <label>ชื่อประเภทอาหาร</label>
+                            <input type="text" name="typeName" class="form-control" placeholder="เช่น น้ำ ผลไม้" onChange={this.handleChange} required />
                           </div><br />
-                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="submit" class="btn btn-primary">บันทึก</button>
                         </form>
                         {/* </div> */}
                     </div>

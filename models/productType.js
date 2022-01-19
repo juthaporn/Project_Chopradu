@@ -1,6 +1,6 @@
 const db = require('../util/database');
 
-module.exports = class ProductType{
+class productType{
 
     constructor(typeID, typeName){
         this.typeID = typeID;
@@ -12,6 +12,7 @@ module.exports = class ProductType{
     }
 
     save(){
+        // console.log('...')
         if(this.typeID){
             return db.execute(
                 'update productType set typeName=? where typeID = ?',
@@ -32,3 +33,5 @@ module.exports = class ProductType{
         );
     }
 }
+
+module.exports = productType

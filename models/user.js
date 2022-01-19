@@ -1,8 +1,8 @@
 const db = require('../util/database');
 
-module.exports = class User{
+class user{
 
-    constructor(userID, username, password,name,phone){
+    constructor(userID, username, password, name, phone){
         this.userID = userID;
         this.username = username;
         this.password = password;
@@ -35,11 +35,6 @@ module.exports = class User{
         );
     }
 
-    // delete Address
-    // static delById(product_id){
-    //     return db.execute(
-    //         'delete from user where user_id = ?',
-    //         [this.user_id]
-    //     );
-    // }
 }
+
+module.exports = user

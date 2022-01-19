@@ -21,7 +21,7 @@ class TypeFood extends React.Component{
   
       getData = () => {
         var x = this;
-        axios.get("http://localhost:3000/admin/products").then((res) => {
+        axios.get("http://localhost:3000/admin/productType").then((res) => {
           this.setState({data: res.data.data});
           // x.setState({data: res.data.data});
         }).catch((error) => {
@@ -36,16 +36,16 @@ class TypeFood extends React.Component{
                 <div class="container">
                     <div className="row justify-content-center">
                         <div class="col-md-7 col-lg-5">
-                            <h3 class="mb-4">Type Food</h3>
+                            <h3 class="mb-4">ประเภทอาหาร</h3>
                             <form onSubmit={this.handleSubmit}>
                                 <table className="table">
                                     <tr>
                                         <th></th>
-                                        <th><a href='/AddTypeFood' button type="submit" class="btn btn-primary">Add</a></th>
+                                        <th><a href='/AddTypeFood' button type="submit" class="btn btn-primary">เพิ่มข้อมูล</a></th>
                                     </tr>
                                     <tr>
-                                        <th>Type ID</th>
-                                        <th>Name</th>
+                                        <th>รหัสประเภทอาหาร</th>
+                                        <th>ชื่อประเภทอาหาร</th>
                                     </tr>
                                     {this.state.data.map(item => (
                                     // <form onSubmit={this.handleSubmit}> 

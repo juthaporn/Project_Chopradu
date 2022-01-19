@@ -45,10 +45,10 @@ class Header extends React.Component{
                                         <div class="main-menu d-none d-lg-block">
                                             <nav>                                                
                                                 <ul id="navigation">  
-                                                    <li><Link to="/Admin">Home</Link></li>  
+                                                    <li><Link to="/Admin">หน้าแรก</Link></li>  
                                                     <li><Link to="/Shop">ร้านค้า</Link></li>
                                                     <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
-                                                    <li><Link to="/product">Order</Link></li>
+                                                    {/* <li><Link to="#">Order</Link></li> */}
                                                     
                                                 </ul>
                                             </nav>

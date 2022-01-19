@@ -1,19 +1,17 @@
 const db = require('../util/database');
 
-module.exports = class Shop{
+class shop{
 
-    constructor(ShopID, ShopName, ShopPhone, shopDetail, OpeningTime, ShopType, payRent, shopRating, shopRentalContract, ownerID){
-        this.ShopID = ShopID;
-        this.ShopName = ShopName;
-        this.memberPhone = memberPhone;
-        this.ShopPhone = ShopPhone;
+    constructor(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, shopRentalContract){
+        this.shopID =shopID;
+        this.shopName = shopName;
+        this.shopPhone = shopPhone;
         this.shopDetail = shopDetail;
-        this.OpeningTime = OpeningTime;
-        this.ShopType = ShopType;
+        this.openingTime = openingTime;
+        this.shopType = shopType;
         this.payRent = payRent;
         this.shopRating = shopRating;
         this.shopRentalContract = shopRentalContract;
-        this.ownerID = ownerID;
     }
 
     static findAll(){
@@ -21,23 +19,23 @@ module.exports = class Shop{
     }
 
     save(){
-        if(this.ShopID){
+        if(this.shopID){
             return db.execute(
-                'update shop set ShopName=?, ShopPhone=?, shopDetail=?, OpeningTime=?, ShopType=?, payRent=?, shopRating=?, shopRentalContract=?, ownerID=? where ShopID = ?',
-                [this.ShopID, this.ShopName, this.ShopPhone, this.shopDetail, this.OpeningTime, this.ShopType, this.payRent, this.shopRating, this.shopRentalContract, this.ownerID, this.ShopID]
+                'update shop set shopName=?, shopPhone=?, shopDetail=?, openingTime=?, shopType=?, payRent=?, shopRating=?, shopRentalContract=? where ShopID = ?',
+                [this.shopID, this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.payRent, this.shopRating, this.shopRentalContract, this.shopID]
             );
         }else{
             return db.execute(
-                'insert into shop (ShopName, ShopPhone, shopDetail, OpeningTime, ShopType, payRent, shopRating, shopRentalContract, ownerID) values(?,?,?,?,?,?,?,?,?)',
-                [this.ShopName, this.ShopPhone, this.shopDetail, this.OpeningTime, this.ShopType, this.payRent, this.shopRating, this.shopRentalContract, this.ownerID]
+                'insert into shop (shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract) values(?,?,?,?,?,?)',
+                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.shopRentalContract]
             );
         }
     }
 
-    static findById(ShopID){
+    static findById(shopID){
         return db.execute(
-            'select * from user where ShopID = ?',
-            [this.ShopID]
+            'select * from shop where shopID = ?',
+            [this.shopID]
         );
     }
 
@@ -49,3 +47,5 @@ module.exports = class Shop{
     //     );
     // }
 }
+
+module.exports = shop

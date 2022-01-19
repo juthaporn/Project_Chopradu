@@ -14,12 +14,13 @@ exports.getUser = (req, res, next) => {
 }
 
 exports.createUser = (req, res, next) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    const name = req.body.name;
-    const phone = req.body.phone;
-    
-    const user = new User(null, username, password,name,phone);
+    // const username = req.body.username;
+    // const password = req.body.password;
+    // const name = req.body.name;
+    // const phone = req.body.phone;
+    const {userID, username, password, name, phone} = req.body
+    console.log(req.body)
+    const user = new User(userID, username, password, name, phone);
     user.save().then(() => {
         res.status(200).json({
             "message": "success",

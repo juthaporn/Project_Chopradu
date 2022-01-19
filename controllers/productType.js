@@ -1,4 +1,4 @@
-const ProductType = require('../util/database');
+const ProductType = require('../models/productType');
 
 exports.getProductType = (req, res, next) => {
     ProductType.findAll().then(productType => {
@@ -14,9 +14,11 @@ exports.getProductType = (req, res, next) => {
 }
 
 exports.createProductType = (req, res, next) => {
-    const typeName = req.body.typeName;
-
-    const productType = new ProductType(null, typeName);
+    // const typeID = req.body.typeID;
+    // const typeName = req.body.typeName;
+    const {typeID, typeName} = req.body
+    console.log(req.body)
+    const productType = new ProductType(typeID, typeName);
     productType.save().then(() => {
         res.status(200).json({
             "message": "success",

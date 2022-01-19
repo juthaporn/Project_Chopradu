@@ -8,9 +8,9 @@ const rentController = require('../controllers/rent');
 const orderController = require('../controllers/order');
 
 //user
-router.get('/add-user',userController.createUser);
-
 router.get('/user',userController.getUser);
+
+router.get('/add-user',userController.createUser);
 
 // router.get('/edit-user/:userID', userController.getEditUser);
 
