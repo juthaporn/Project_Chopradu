@@ -2,36 +2,37 @@ const db = require('../util/database');
 
 module.exports = class Rent{
 
-    constructor(rentID, rentShop, costOfUtilities){
-        this.rentID = rentID;
-        this.rentShop = rentShop;
-        this.costOfUtilities = costOfUtilities;
+    constructor(rentalID, rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee){
+        this.rentalID = rentalID;
+        this.rentalDetail = rentalDetail;
+        this.waterBill = waterBill;
+        this.electricityBill = electricityBill;
         this.cleaningFee = cleaningFee;
-        this.shopID = shopID;
+        this.wasteDisposalFee = wasteDisposalFee;
     }
 
     static findAll(){
-        return db.execute("select * from rent");
+        return db.execute("select * from monthlyRentalFee");
     }
 
     save(){
-        if(this.rentID){
+        if(this.rentalID){
             return db.execute(
-                'update rent set rentShop=?, costOfUtilities=?, cleaningFee=?, shopID=? where rentID = ?',
-                [this.rentID, this.rentShop, this.costOfUtilities, this.cleaningFee, this.shopID, this.rentID]
+                'update monthlyRentalFee set rentalDetail=?, waterBill=?, electricityBill=?, cleaningFee=?, wasteDisposalFee=? where rentalID = ?',
+                [this.rentalID, this.rentalDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.rentalID]
             );
         }else{
             return db.execute(
-                'insert into rent (rentShop, costOfUtilities, cleaningFee, shopID) values(?,?,?,?)',
-                [this.rentShop, this.costOfUtilities, this.cleaningFee, this.shopID]
+                'insert into monthlyRentalFee (rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee) values(?,?,?,?,?)',
+                [this.rentalDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee]
             );
         }
     }
 
-    static findById(rentID){
+    static findById(rentalID){
         return db.execute(
-            'select * from rent where rentID= ?',
-            [this.rentID]
+            'select * from monthlyRentalFee where rentalID= ?',
+            [this.rentalID]
         );
     }
 

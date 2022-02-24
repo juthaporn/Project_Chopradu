@@ -1,10 +1,10 @@
-const User = require('../models/user');
+const Member = require('../models/member');
 
-exports.getUser = (req, res, next) => {
-    User.findAll().then(user => {
+exports.getMember = (req, res, next) => {
+    Member.findAll().then(member => {
         res.status(200).json({
             "message": "success",
-            "data": user[0]
+            "data": member[0]
         });
     }).catch(error => {
         res.status(500).json({
@@ -13,15 +13,15 @@ exports.getUser = (req, res, next) => {
     });
 }
 
-exports.createUser = (req, res, next) => {
+exports.createMember = (req, res, next) => {
     // const username = req.body.username;
     // const password = req.body.password;
     // const name = req.body.name;
     // const phone = req.body.phone;
-    const {userID, username, password, name, phone, status} = req.body
+    const {memberID, username, password, name, phone, status} = req.body
     console.log(req.body)
-    const user = new User(userID, username, password, name, phone, status);
-    user.save().then(() => {
+    const member = new Member(memberID, username, password, name, phone, status);
+    member.save().then(() => {
         res.status(200).json({
             "message": "success",
             "result": true

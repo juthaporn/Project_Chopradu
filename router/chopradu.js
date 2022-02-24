@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/product');
-const userController = require('../controllers/user');
+const memberController = require('../controllers/member');
 const shopController = require('../controllers/shop');
 const productTypeController = require('../controllers/productType');
 const rentController = require('../controllers/rent');
 const orderController = require('../controllers/order');
 
-//user
-router.get('/user',userController.getUser);
+//member
+router.get('/member',memberController.getMember);
 
-router.get('/add-user',userController.createUser);
+router.get('/add-member',memberController.createMember);
 
 // router.get('/edit-user/:userID', userController.getEditUser);
 
-// router.post('/edit-user', userController.editUser);
+// router.post('/edit-user', userController. s);
 
 // router.get('/delete-user', userController.deleteUser);
 
@@ -23,9 +23,9 @@ router.get('/shop', shopController.getShop);
 
 router.post('/add-shop', shopController.createShop);
 
-// router.get('/edit-shop/:shopID', shopController.getEditShop);
+router.get('/edit-shop/:shopID', shopController.getEditShop);
 
-// router.post('/edit-shop', shopController.editShop);
+router.post('/edit-shop', shopController.editShop);
 
 // router.get('/delete-shop', shopController.deleteShop);
 
@@ -41,11 +41,11 @@ router.get('/products', productController.getProduct);
 
 router.post('/add-products', productController.createProduct);
 
-// router.get('/edit-products/:productID', productController.getEditProduct);
+router.get('/edit-products/:productID', productController.getEditProduct);
 
-// router.post('/edit-products', productController.editProduct);
+router.post('/edit-products', productController.editProduct);
 
-// router.get('/delete-products', productController.deleteProduct);
+router.get('/delete-products', productController.deleteProduct);
 
 
 //productType
@@ -53,8 +53,9 @@ router.get('/productType', productTypeController.getProductType);
 
 router.post('/add-productType', productTypeController.createProductType);
 
-// router.get('/edit-productsType/:productType_id', productController.getEditProductType);
-// router.post('/edit-productsType', productController.editProductType);
+router.get('/edit-productsType/:productType_id', productController.getEditProductType);
+
+router.post('/edit-productsType', productController.editProductType);
 // router.get('/delete-productsType', productController.deleteProductType);
 
 

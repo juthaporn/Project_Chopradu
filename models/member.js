@@ -1,9 +1,9 @@
 const db = require('../util/database');
 
-class user{
+class member{
 
-    constructor(userID, username, password, name, phone, status){
-        this.userID = userID;
+    constructor(memberID, username, password, name, phone, status){
+        this.memberID = memberID;
         this.username = username;
         this.password = password;
         this.name = name;
@@ -12,14 +12,14 @@ class user{
     }
 
     static findAll(){
-        return db.execute("select * from user");
+        return db.execute("select * from member");
     }
 
     save(){
-        if(this.userID){
+        if(this.memberID){
             return db.execute(
-                'update user set username=?, password=?, name=?, phone=?, status=? where userID = ?',
-                [this.userID, this.username, this.password, this.name, this.phone, this.status, this.userID]
+                'update member set username=?, password=?, name=?, phone=?, status=? where memberID = ?',
+                [this.memberID, this.username, this.password, this.name, this.phone, this.status, this.memberID]
             );
         }else{
             return db.execute(
@@ -29,13 +29,13 @@ class user{
         }
     }
 
-    static findById(userID){
+    static findById(memberID){
         return db.execute(
-            'select * from user where userID = ?',
-            [this.userID]
+            'select * from member where memberID = ?',
+            [this.memberID]
         );
     }
 
 }
 
-module.exports = user
+module.exports = member
