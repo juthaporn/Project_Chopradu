@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AdminHeader from '../components/AdminHeader';
+import OwnerHeader from '../components/OwnerHeader';
 
 
-class AdminHome extends React.Component{
+class OwnerHome extends React.Component{
 
     constructor(props){
         super(props);
@@ -32,20 +32,28 @@ class AdminHome extends React.Component{
     render(){
         return(
             <main>
-              <AdminHeader />
-                {/* <div class="container">
+              <OwnerHeader />
+                <div class="container">
                 <div className="row">
                   <div className="col-md-12">
                     <form onSubmit={this.handleSubmit}>
                       <table className="table">
-                        <tr>
+                      <tr>
+                            <th></th>
+                            <th>
+                                <a href='/AddShop' button type="submit" class="btn btn-primary">แก้ไขข้อมูลร้านค้า</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href='/AddShop' button type="submit" class="btn btn-primary">เพิ่มรายการอหาร</a>
+                            </th>
+                            <th></th>
+                          </tr>    
+                        {/* <tr>
                           <th></th>
                           <th>Name</th>
                           <th>Brand</th>
                           <th>Color</th>
                           <th>Price</th>
-                        </tr>
-                        {this.state.data.map(item => (
+                        </tr> */}
+                        {/* {this.state.data.map(item => (
                         // <form onSubmit={this.handleSubmit}> 
                           <tr>
                             <td><Link to={"/product"+item.product_id}><img src={""+item.image+""} alt="" ></img></Link></td>  
@@ -55,12 +63,12 @@ class AdminHome extends React.Component{
                             <td>{item.price}</td>
                           </tr>
                         // </form>  
-                        ))}
+                        ))} */}
                     </table>
                     </form>
                   </div>
                 </div>
-                </div>         */}
+                </div>        
                    
             </main>
             
@@ -69,4 +77,4 @@ class AdminHome extends React.Component{
 
 }
 
-export default AdminHome;
+export default OwnerHome;

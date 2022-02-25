@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-class Header extends React.Component{
+class OwnerHeader extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -45,10 +45,10 @@ class Header extends React.Component{
                                         <div class="main-menu d-none d-lg-block">
                                             <nav>                                                
                                                 <ul id="navigation">  
-                                                    <li><Link to="/Admin">หน้าแรก</Link></li>  
-                                                    <li><Link to="/Shop">ร้านค้า</Link></li>
-                                                    <li><Link to="/AddRent">ค่าเช่า</Link></li>
-                                                    <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
+                                                    <li><Link to="/Owner">หน้าแรก</Link></li>  
+                                                    {/* <li><Link to="/Shop">ร้านค้า</Link></li> */}
+                                                    {/* <li><Link to="/AddRent">ค่าเช่า</Link></li> */}
+                                                    {/* <li><Link to="/TypeFood">ประเภทอาหาร</Link></li> */}
 
                                                     {/* <li><Link to="#">Order</Link></li> */}
                                                     
@@ -71,4 +71,4 @@ class Header extends React.Component{
     }
 }
 
-export default Header;
+export default OwnerHeader;

@@ -29,6 +29,7 @@ import TypeFood from './pages/TypeFood';
 import AddTypeFood from './pages/AddTypeFood';
 import AddRent from './pages/AddRent';
 // import Login from './pages/Login';
+import OwnerHome from './pages/OwnerHome';
 
 class App extends React.Component {
 
@@ -94,6 +95,9 @@ class App extends React.Component {
           </Route>
           <Route path="/AddRent">
             <AddRent />
+          </Route>
+          <Route path="/OwnerHome">
+            <OwnerHome />
           </Route>
 
           <Route path="/">

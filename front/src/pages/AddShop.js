@@ -54,8 +54,8 @@ class AddShop extends React.Component {
                             <input type="text" name="shopPhone" class="form-control" placeholder="+66" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
-                            <label>คำอธิบาย</label>
-                            <input type="text" name="shopDetail" class="form-control" placeholder="คำอธิบาย" onChange={this.handleChange} required />
+                            <label>คำอธิบายร้านค้า</label>
+                            <input type="text" name="shopDetail" class="form-control" placeholder="คำอธิบายร้านค้า" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>เวลาเปิด-ปิด</label>
@@ -72,6 +72,13 @@ class AddShop extends React.Component {
                           <div class="form-group">
                             <label>ค่าเช่ารายปี</label>
                             <input type="text" name="shopRentalContract" class="form-control"  onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>สถานะการจ่ายค่าเช่า</label><br />
+                            <input type="radio" name="payRent" value="" onChange={this.handleChange}/>&nbsp;
+                            <label for="payRent">จ่ายแล้ว</label>&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="payRent" value="" onChange={this.handleChange}/>&nbsp;
+                            <label for="payRent">ยังไม่จ่าย</label>
                           </div><br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>
                         </form>

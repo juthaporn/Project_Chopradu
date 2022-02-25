@@ -1,7 +1,7 @@
-const Rent = require('../models/rent');
+const MonthlyRentalFee = require('../models/rent');
 
 exports.getRent = (req, res, next) => {
-    Rent.findAll().then(monthlyRentalFee => {
+    MonthlyRentalFee.findAll().then(monthlyRentalFee => {
         res.status(200).json({
             "message": "success",
             "data": monthlyRentalFee[0]

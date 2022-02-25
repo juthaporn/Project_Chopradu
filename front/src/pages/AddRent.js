@@ -42,8 +42,16 @@ class AddRent extends React.Component {
                         {/* <div className="col-md-6"> */}
                         <form onSubmit={this.handleSubmit}>
                           <div class="form-group">
-                            <label>รายละเอียดค่าเช่า</label>
+                            <label>คำอธิบายเพิ่มเติม</label>
                             <input type="text" name="typeID" class="form-control" placeholder="เช่น ค่าไฟหน่วยละ 5.5 บาท ค่าน้ำหน่วยละ 11 บาท" onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>ค่าน้ำ</label>
+                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>ค่าไฟ</label>
+                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>ค่ากำจัดขยะ</label>
@@ -53,14 +61,7 @@ class AddRent extends React.Component {
                             <label>ค่าทำความสะอาด</label>
                             <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
                           </div>
-                          <div class="form-group">
-                            <label>ค่าน้ำ</label>
-                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
-                          </div>
-                          <div class="form-group">
-                            <label>ค่าไฟ</label>
-                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
-                          </div><br />
+                          <br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>
                         </form>
                         {/* </div> */}
