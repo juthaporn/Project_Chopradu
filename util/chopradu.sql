@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2022 at 01:34 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+-- Generation Time: Feb 26, 2022 at 09:00 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -95,7 +95,7 @@ CREATE TABLE `product` (
   `productName` varchar(50) NOT NULL,
   `productDetail` varchar(200) NOT NULL,
   `productPrice` double NOT NULL,
-  `typeID` varchar(50) NOT NULL
+  `typeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -180,7 +180,7 @@ ALTER TABLE `orderdetail`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`productID`),
-  ADD KEY `typeID` (`typeID`);
+  ADD KEY `TypeID` (`typeID`);
 
 --
 -- Indexes for table `producttype`
@@ -276,13 +276,7 @@ ALTER TABLE `orderdetail`
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`typeID`) REFERENCES `producttype` (`typeID`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `shop`
---
-ALTER TABLE `shop`
-  ADD CONSTRAINT `shop_ibfk_1` FOREIGN KEY (`memberID`) REFERENCES `member` (`memberID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `TypeID` FOREIGN KEY (`typeID`) REFERENCES `producttype` (`typeID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

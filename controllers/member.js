@@ -27,7 +27,7 @@ exports.createMember = (req, res, next) => {
             "result": true
         });
     }).catch((error) => {
-        res.status(200).json({
+        res.status(500).json({
             "message": error,
             "result": false
         });

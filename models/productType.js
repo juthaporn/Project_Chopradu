@@ -8,19 +8,19 @@ class productType{
     }
 
     static findAll(){
-        return db.execute("select * from productType");
+        return db.execute("select * from producttype");
     }
 
     save(){
         // console.log('...')
         if(this.typeID){
             return db.execute(
-                'update productType set typeName=? where typeID = ?',
-                [this.typeID, this.typeName, this.typeID]
+                'update producttype set typeName=? where typeID = ?',
+                [this.typeName, this.typeID]
             );
         }else{
             return db.execute(
-                'insert into productType (typeName) values(?)',
+                'insert into producttype (typeName) values(?)',
                 [this.typeName]
             );
         }
@@ -28,9 +28,16 @@ class productType{
 
     static findById(typeID){
         return db.execute(
-            'select * from productType where typeID = ?',
-            [this.typeID]
+            'select * from producttype where typeID = ?',
+            [typeID]
         );
+    }
+
+    static delById(typeID){
+        return db.execute(
+            "delete from producttype where typeID = ?",
+            [typeID]
+        )
     }
 }
 

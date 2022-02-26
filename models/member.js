@@ -19,7 +19,7 @@ class member{
         if(this.memberID){
             return db.execute(
                 'update member set username=?, password=?, name=?, phone=?, status=? where memberID = ?',
-                [this.memberID, this.username, this.password, this.name, this.phone, this.status, this.memberID]
+                [this.username, this.password, this.name, this.phone, this.status, this.memberID]
             );
         }else{
             return db.execute(

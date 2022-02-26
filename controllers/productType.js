@@ -14,11 +14,9 @@ exports.getProductType = (req, res, next) => {
 }
 
 exports.createProductType = (req, res, next) => {
-    // const typeID = req.body.typeID;
-    // const typeName = req.body.typeName;
-    const {typeID, typeName} = req.body
+    const {typeName} = req.body
     console.log(req.body)
-    const productType = new ProductType(typeID, typeName);
+    const productType = new ProductType(null ,typeName);
     productType.save().then(() => {
         res.status(200).json({
             "message": "success",
@@ -33,6 +31,7 @@ exports.createProductType = (req, res, next) => {
 }
 
 exports.getEditProductType = (req, res, next) => {
+    console.log(req.params)
     const typeID = req.params.typeID;
     ProductType.findById(typeID).then((productType) => {
         res.status(200).json({
@@ -47,10 +46,9 @@ exports.getEditProductType = (req, res, next) => {
 }
 
 exports.editProductType = (req, res, next) => {
-    // const typeID = req.body.typeID;
-    const typeName = req.body.typeName;
+    const {typeID, typeName} = req.body
     
-    const productType = new ProductType(null, typeName);
+    const productType = new ProductType(typeID, typeName);
     productType.save().then(() => {
         res.status(200).json({
             "message": "success",
@@ -58,6 +56,22 @@ exports.editProductType = (req, res, next) => {
         });
     }).catch((error) => {
         res.status(200).json({
+            "message": error,
+            "result": false
+        });
+    });
+}
+
+exports.deleteProductType = (req, res, next) => {
+    console.log(req.params)
+    const {typeID} = req.params;
+    ProductType.delById(typeID).then(() => {
+        res.status(200).json({
+            "message": "success",
+            "result": true
+        });
+    }).catch((error) => {
+        res.status(500).json({
             "message": error,
             "result": false
         });
