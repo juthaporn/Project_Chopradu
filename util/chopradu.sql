@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2022 at 09:00 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.3.33
+-- Generation Time: Feb 27, 2022 at 03:14 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,9 +33,7 @@ CREATE TABLE `member` (
   `password` varchar(20) NOT NULL,
   `name` varchar(200) NOT NULL,
   `phone` int(10) NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `shopID` int(11) NOT NULL,
-  `orderID` int(11) NOT NULL
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -95,7 +93,7 @@ CREATE TABLE `product` (
   `productName` varchar(50) NOT NULL,
   `productDetail` varchar(200) NOT NULL,
   `productPrice` double NOT NULL,
-  `typeID` int(11) NOT NULL
+  `typeID` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -148,9 +146,7 @@ CREATE TABLE `shop` (
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
-  ADD PRIMARY KEY (`memberID`),
-  ADD KEY `shopID` (`shopID`),
-  ADD KEY `orderID` (`orderID`);
+  ADD PRIMARY KEY (`memberID`);
 
 --
 -- Indexes for table `monthlyrentalfee`
@@ -180,7 +176,7 @@ ALTER TABLE `orderdetail`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`productID`),
-  ADD KEY `TypeID` (`typeID`);
+  ADD KEY `typeID` (`typeID`);
 
 --
 -- Indexes for table `producttype`
@@ -246,13 +242,6 @@ ALTER TABLE `shop`
 --
 
 --
--- Constraints for table `member`
---
-ALTER TABLE `member`
-  ADD CONSTRAINT `member_ibfk_1` FOREIGN KEY (`shopID`) REFERENCES `shop` (`shopID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `member_ibfk_2` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
 -- Constraints for table `monthlyrentalfee`
 --
 ALTER TABLE `monthlyrentalfee`
@@ -276,7 +265,13 @@ ALTER TABLE `orderdetail`
 -- Constraints for table `product`
 --
 ALTER TABLE `product`
-  ADD CONSTRAINT `TypeID` FOREIGN KEY (`typeID`) REFERENCES `producttype` (`typeID`);
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`typeID`) REFERENCES `producttype` (`typeID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `shop`
+--
+ALTER TABLE `shop`
+  ADD CONSTRAINT `shop_ibfk_1` FOREIGN KEY (`memberID`) REFERENCES `member` (`memberID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
