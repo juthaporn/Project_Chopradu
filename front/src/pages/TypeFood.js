@@ -47,7 +47,7 @@ class TypeFood extends React.Component{
                                     <tr>
                                         <th>รหัสประเภทอาหาร</th>
                                         <th>ชื่อประเภทอาหาร</th>
-                                        <th><a href='/EditType' button type="submit" class="btn btn-primary">แก้ไข</a></th>
+                                        <th></th>
                                     </tr>
                                     {this.state.data.map(item => (
                                     // <form onSubmit={this.handleSubmit}> 
@@ -55,6 +55,7 @@ class TypeFood extends React.Component{
                                         {/* <td><Link to={"/product"+item.product_id}><img src={""+item.image+""} alt="" ></img></Link></td>   */}
                                         <td>{item.typeID}</td>
                                         <td>{item.typeName}</td>
+                                        <td><a href='/EditType' button type="submit" class="btn btn-primary">แก้ไข</a></td>
                                     </tr>
                                     // </form>  
                                     ))}
