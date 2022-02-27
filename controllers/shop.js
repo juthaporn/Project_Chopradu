@@ -14,15 +14,10 @@ exports.getShop = (req, res, next) => {
 }
 
 exports.createShop = (req, res, next) => {
-    const shopID = req.body.shopID;
-    const shopName = req.body.shopName;
-    const shopPhone = req.body.shopPhone;
-    const shopDetail = req.body.shopDetail;
-    const openingTime = req.body.openingTime;
-    const shopType = req.body.shopType;
-    const shopRentalContract = req.body.shopRentalContract;
-    
-    const shop = new Shop(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract);
+    const {shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, 
+        shopRentalContract, shopRentalFee, memberID} = req.body
+    const shop = new Shop(null, shopName, shopPhone, shopDetail, openingTime, shopType, payRent,
+        shopRating, shopRentalContract, shopRentalFee, memberID)
     shop.save().then(() => {
         res.status(200).json({
             "message": "success",
@@ -36,6 +31,39 @@ exports.createShop = (req, res, next) => {
     });
 }
 
+exports.getEditShop = (req, res, next) => {
+    const {shopID} = req.params;
+    Shop.findById(shopID).then((shop) => {
+        res.status(200).json({
+            "message": "success",
+            "data": shop[0]
+        })
+    }).catch((err) => {
+        res.status(500).json({
+            "message": err
+        })
+    })
+}
+
+exports.editShop = (req, res, next) => {
+    console.log(req.body)
+    const {shopID, shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, 
+        shopRentalContract, shopRentalFee, memberID} = req.body
+    const shop = new Shop(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, 
+        payRent, shopRating, shopRentalContract, shopRentalFee, memberID)
+    shop.save(shopID).then(() => {
+        res.status(200).json({
+            "message": "success",
+            "result": true
+        })
+    }).catch((err) => {
+        res.status(500).json({
+            "message": err,
+            "result": false
+        })
+    })
+
+}
 
 // exports.getEditAddress = (req, res, next) => {
 //     const user_id = req.params.user_id;

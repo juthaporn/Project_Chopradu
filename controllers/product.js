@@ -3,8 +3,9 @@ const Product = require('../models/product');
 exports.getProduct = (req, res, next) => {
     Product.findAll().then(products => {
         res.status(200).json({
-            "message": "success",
-            "data": products[0]
+            data: products[0],
+            "message": "success"
+            
         });
     }).catch(error => {
         res.status(500).json({
@@ -40,15 +41,9 @@ exports.getProduct = (req, res, next) => {
 // }
 
 exports.createProduct = (req, res, next) => {
-    const productName = req.body.productName;
-    // const image = req.body.image;
-    const productDetail = req.body.productDetail;
-    const productPrice = req.body.productPrice;
-    // const type = req.body.type;
-    // const description = req.body.description;
-    // const price = req.body.price;
-    
-    const product = new Product(null, productName, productDetail, productPrice);
+    console.log(req.body)
+    const {productName, productDetail, productPrice, typeID} = req.body
+    const product = new Product(null ,productName, productDetail, productPrice, typeID);
     product.save().then(() => {
         res.status(200).json({
             "message": "success",
@@ -63,8 +58,8 @@ exports.createProduct = (req, res, next) => {
 }
 
 exports.getEditProduct = (req, res, next) => {
-    const product_id = req.params.product_id;
-    Product.findById(product_id).then((products) => {
+    const {productID} = req.params
+    Product.findById(productID).then((products) => {
         res.status(200).json({
             "message": "success",
             "data": products[0]
@@ -76,39 +71,43 @@ exports.getEditProduct = (req, res, next) => {
     });
 }
 
-// exports.editProduct = (req, res, next) => {
-//     const product_name = req.body.product_name;
-//     const brand = req.body.brand;
-//     const color = req.body.color;
-//     const type = req.body.type;
-//     const description = req.body.description;
-//     const price = req.body.price;
-    
-//     const product = new Product(null, product_name, brand, color, type, description, price);
-//     product.save().then(() => {
-//         res.status(200).json({
-//             "message": "success",
-//             "result": true
-//         });
-//     }).catch((error) => {
-//         res.status(200).json({
-//             "message": error,
-//             "result": false
-//         });
-//     });
-// }
+exports.editProduct = (req, res, next) => {
+    // const product_name = req.body.product_name;
+    // const brand = req.body.brand;
+    // const color = req.body.color;
+    // const type = req.body.type;
+    // const description = req.body.description;
+    // const price = req.body.price;
+    console.log(req.body)
+    const {productID, productName, productDetail, productPrice, typeID} = req.body;
+    // const product = new Product(null, product_name, brand, color, type, description, price);
+    const product = new Product(productID, productName, productDetail, productPrice, typeID)
+    product.save().then(() => {
+        res.status(200).json({
+            "message": "success",
+            "result": true
+        });
+    }).catch((error) => {
+        res.status(200).json({
+            "message": error,
+            "result": false
+        });
+    });
+}
 
-// exports.deleteProduct = (req, res, next) => {
-//     const product_id = req.query.product_id;
-//     Product.delById(product_id).then(() => {
-//         res.status(200).json({
-//             "message": "success",
-//             "result": true
-//         });
-//     }).catch((error) => {
-//         res.status(500).json({
-//             "message": error,
-//             "result": false
-//         });
-//     });
-// }
+exports.deleteProduct = (req, res, next) => {
+    // const productID = req.query.product_id;
+    console.log(req.params)
+    const {productID} = req.params;
+    Product.delById(productID).then(() => {
+        res.status(200).json({
+            "message": "success",
+            "result": true
+        });
+    }).catch((error) => {
+        res.status(500).json({
+            "message": error,
+            "result": false
+        });
+    });
+}

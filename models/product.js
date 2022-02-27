@@ -2,11 +2,12 @@ const db = require('../util/database');
 
 module.exports = class Product{
 
-    constructor(productID, productName, productDetail, productPrice){
+    constructor(productID, productName, productDetail, productPrice, typeID){
         this.productID = productID;
         this.productName = productName;
         this.productDetail = productDetail;
         this.productPrice = productPrice;
+        this.typeID = typeID;
     }
 
     static findAll(){
@@ -17,12 +18,12 @@ module.exports = class Product{
         if(this.productID){
             return db.execute(
                 'update product set productName=?, productDetail=?, productPrice=? where productID = ?',
-                [this.productID, this.productName, this.productDetail, this.productPrice, this.productID]
+                [this.productName, this.productDetail, this.productPrice, this.productID]
             );
         }else{
             return db.execute(
-                'insert into product (productName, productDetail, productPrice, phone) values(?,?,?)',
-                [this.productName, this.productDetail, this.productPrice]
+                'insert into product (productName, productDetail, productPrice, typeID) values(?,?,?,?)',
+                [this.productName, this.productDetail, this.productPrice, this.typeID]
             );
         }
     }
@@ -30,8 +31,14 @@ module.exports = class Product{
     static findById(productID){
         return db.execute(
             'select * from product where productID = ?',
-            [this.productID]
+            [productID]
         );
     }
 
+    static delById(productID){
+        return db.execute(
+            "delete from product where productID = ?",
+            [productID]
+        )
+    }
 }

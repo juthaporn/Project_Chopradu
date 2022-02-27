@@ -2,13 +2,14 @@ const db = require('../util/database');
 
 module.exports = class Rent{
 
-    constructor(rentalID, rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee){
+    constructor(rentalID, rentDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee, shopID){
         this.rentalID = rentalID;
-        this.rentalDetail = rentalDetail;
+        this.rentDetail = rentDetail;
         this.waterBill = waterBill;
         this.electricityBill = electricityBill;
         this.cleaningFee = cleaningFee;
         this.wasteDisposalFee = wasteDisposalFee;
+        this.shopID = shopID;
     }
 
     static findAll(){
@@ -18,13 +19,13 @@ module.exports = class Rent{
     save(){
         if(this.rentalID){
             return db.execute(
-                'update monthlyRentalFee set rentalDetail=?, waterBill=?, electricityBill=?, cleaningFee=?, wasteDisposalFee=? where rentalID = ?',
-                [this.rentalID, this.rentalDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.rentalID]
+                'update monthlyRentalFee set rentalDetail=?, waterBill=?, electricityBill=?, cleaningFee=?, wasteDisposalFee=?, shopID=? where rentalID = ?',
+                [this.rentalID, this.rentDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.shopID, this.rentalID]
             );
         }else{
             return db.execute(
-                'insert into monthlyRentalFee (rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee) values(?,?,?,?,?)',
-                [this.rentalDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee]
+               'insert into monthlyRentalFee (rentDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee, shopID) values(?,?,?,?,?,?)',
+               [this.rentDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.shopID]
             );
         }
     }
@@ -32,7 +33,7 @@ module.exports = class Rent{
     static findById(rentalID){
         return db.execute(
             'select * from monthlyRentalFee where rentalID= ?',
-            [this.rentalID]
+            [rentalID]
         );
     }
 

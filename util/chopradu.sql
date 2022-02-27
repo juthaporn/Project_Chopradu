@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2022 at 01:34 PM
+-- Generation Time: Feb 27, 2022 at 03:14 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -33,9 +33,7 @@ CREATE TABLE `member` (
   `password` varchar(20) NOT NULL,
   `name` varchar(200) NOT NULL,
   `phone` int(10) NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `shopID` int(11) NOT NULL,
-  `orderID` int(11) NOT NULL
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -148,9 +146,7 @@ CREATE TABLE `shop` (
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
-  ADD PRIMARY KEY (`memberID`),
-  ADD KEY `shopID` (`shopID`),
-  ADD KEY `orderID` (`orderID`);
+  ADD PRIMARY KEY (`memberID`);
 
 --
 -- Indexes for table `monthlyrentalfee`
@@ -244,13 +240,6 @@ ALTER TABLE `shop`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `member`
---
-ALTER TABLE `member`
-  ADD CONSTRAINT `member_ibfk_1` FOREIGN KEY (`shopID`) REFERENCES `shop` (`shopID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `member_ibfk_2` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `monthlyrentalfee`

@@ -2,7 +2,8 @@ const db = require('../util/database');
 
 class shop{
 
-    constructor(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, shopRentalContract){
+    constructor(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, payRent, 
+        shopRating, shopRentalContract, shopRentalFee, memberID){
         this.shopID =shopID;
         this.shopName = shopName;
         this.shopPhone = shopPhone;
@@ -12,6 +13,8 @@ class shop{
         this.payRent = payRent;
         this.shopRating = shopRating;
         this.shopRentalContract = shopRentalContract;
+        this.shopRentalFee = shopRentalFee;
+        this.memberID = memberID;
     }
 
     static findAll(){
@@ -21,13 +24,13 @@ class shop{
     save(){
         if(this.shopID){
             return db.execute(
-                'update shop set shopName=?, shopPhone=?, shopDetail=?, openingTime=?, shopType=?, payRent=?, shopRating=?, shopRentalContract=? where ShopID = ?',
-                [this.shopID, this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.payRent, this.shopRating, this.shopRentalContract, this.shopID]
+                'update shop set shopName=?, shopPhone=?, shopDetail=?, openingTime=?, shopType=?, payRent=?, shopRating=?, shopRentalContract=?, shopRentalFee=?, memberID=? where shopID=?',
+                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.payRent, this.shopRating, this.shopRentalContract, this.shopRentalFee, this.memberID, this.shopID]
             );
         }else{
             return db.execute(
-                'insert into shop (shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract) values(?,?,?,?,?,?)',
-                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.shopRentalContract]
+                'insert into shop (shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, shopRentalContract, shopRentalFee, memberID) values(?,?,?,?,?,?,?,?,?,?)',
+                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.payRent, this.shopRating, this.shopRentalContract, this.shopRentalFee, this.memberID]
             );
         }
     }
@@ -35,7 +38,7 @@ class shop{
     static findById(shopID){
         return db.execute(
             'select * from shop where shopID = ?',
-            [this.shopID]
+            [shopID]
         );
     }
 

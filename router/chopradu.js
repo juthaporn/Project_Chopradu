@@ -10,7 +10,7 @@ const orderController = require('../controllers/order');
 //member
 router.get('/member',memberController.getMember);
 
-router.get('/add-member',memberController.createMember);
+router.post('/add-member',memberController.createMember);
 
 // router.get('/edit-user/:userID', userController.getEditUser);
 
@@ -27,13 +27,13 @@ router.get('/edit-shop/:shopID', shopController.getEditShop);
 
 router.post('/edit-shop', shopController.editShop);
 
-// router.get('/delete-shop', shopController.deleteShop);
+// // router.get('/delete-shop', shopController.deleteShop);
 
 
 //rent
-router.get('/add-rent',rentController.createRent);
+router.get('/rent', rentController.getRent)
 
-router.get('/rent',rentController.getRent);
+router.post('/add-rent',rentController.createRent);
 
 
 // prodcts
@@ -45,30 +45,31 @@ router.get('/edit-products/:productID', productController.getEditProduct);
 
 router.post('/edit-products', productController.editProduct);
 
-router.get('/delete-products', productController.deleteProduct);
+router.get('/delete-products/:productID', productController.deleteProduct);
 
 
-//productType
+// productType
 router.get('/productType', productTypeController.getProductType);
 
 router.post('/add-productType', productTypeController.createProductType);
 
-router.get('/edit-productsType/:productType_id', productController.getEditProductType);
+router.get('/edit-productsType/:typeID', productTypeController.getEditProductType);
 
-router.post('/edit-productsType', productController.editProductType);
-// router.get('/delete-productsType', productController.deleteProductType);
+router.post('/edit-productsType', productTypeController.editProductType);
+
+router.get('/delete-productsType/:typeID', productTypeController.deleteProductType);
 
 
-// order
-router.get('/order',orderController.getOrder);
+// // order
+// router.get('/order',orderController.getOrder);
 
-router.post('/add-order',orderController.createOrder);
+// router.post('/add-order',orderController.createOrder);
 
-router.get('/edit-order/:orderID',orderController.getEditOrder);
+// router.get('/edit-order/:orderID',orderController.getEditOrder);
 
-router.post('/edit-order',orderController.editOrder);
+// router.post('/edit-order',orderController.editOrder);
 
-router.get('/delete-order',orderController.deleteOrder);
+// router.get('/delete-order',orderController.deleteOrder);
 
 
 module.exports = router;
