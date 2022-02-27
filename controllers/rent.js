@@ -14,13 +14,17 @@ exports.getRent = (req, res, next) => {
 }
 
 exports.createRent = (req, res, next) => {
-    const rentalDetail = req.body.rentalDetail;
-    const waterBill = req.body.waterBill;
-    const electricityBill = req.body.electricityBill;
-    const cleaningFee = req.body.cleaningFee;
-    const wasteDisposalFee = req.body.wasteDisposalFee;
+    // const rentalDetail = req.body.rentalDetail;
+    // const waterBill = req.body.waterBill;
+    // const electricityBill = req.body.electricityBill;
+    // const cleaningFee = req.body.cleaningFee;
+    // const wasteDisposalFee = req.body.wasteDisposalFee;
     
-    const monthlyRentalFee = new MonthlyRentalFee(null, rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee);
+    // const monthlyRentalFee = new MonthlyRentalFee(null, rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee);
+    const {rentDetail, waterBill, electricityBill, cleaningFee, 
+        wasteDisposalFee, shopID} = req.body
+    const monthlyRentalFee = new MonthlyRentalFee(null, rentDetail, waterBill, 
+        electricityBill, cleaningFee, wasteDisposalFee, shopID)
     monthlyRentalFee.save().then(() => {
         res.status(200).json({
             "message": "success",

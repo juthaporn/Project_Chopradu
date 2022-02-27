@@ -19,21 +19,21 @@ router.post('/add-member',memberController.createMember);
 // router.get('/delete-user', userController.deleteUser);
 
 //shop
-// router.get('/shop', shopController.getShop);
+router.get('/shop', shopController.getShop);
 
-// router.post('/add-shop', shopController.createShop);
+router.post('/add-shop', shopController.createShop);
 
-// router.get('/edit-shop/:shopID', shopController.getEditShop);
+router.get('/edit-shop/:shopID', shopController.getEditShop);
 
-// router.post('/edit-shop', shopController.editShop);
+router.post('/edit-shop', shopController.editShop);
 
 // // router.get('/delete-shop', shopController.deleteShop);
 
 
-// //rent
-// router.get('/add-rent',rentController.createRent);
+//rent
+router.get('/rent', rentController.getRent)
 
-// router.get('/rent',rentController.getRent);
+router.post('/add-rent',rentController.createRent);
 
 
 // prodcts

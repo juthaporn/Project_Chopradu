@@ -14,13 +14,9 @@ exports.getMember = (req, res, next) => {
 }
 
 exports.createMember = (req, res, next) => {
-    // const username = req.body.username;
-    // const password = req.body.password;
-    // const name = req.body.name;
-    // const phone = req.body.phone;
-    const {memberID, username, password, name, phone, status} = req.body
+    const {username, password, name, phone, status} = req.body;
     console.log(req.body)
-    const member = new Member(memberID, username, password, name, phone, status);
+    const member = new Member(null, username, password, name, phone, status);
     member.save().then(() => {
         res.status(200).json({
             "message": "success",
@@ -28,10 +24,10 @@ exports.createMember = (req, res, next) => {
         });
     }).catch((error) => {
         res.status(500).json({
-            "message": error,
+            "message" : error,
             "result": false
-        });
-    });
+        })
+    })
 }
 
 // exports.createAddress = (req, res, next) => {
