@@ -7,8 +7,11 @@ class AddRent extends React.Component {
     constructor(props){
       super(props);
       this.state = {
-        typeID: '',
-        typeName: ''
+        rentalDetail: '',
+        waterBill: '',
+        electricityBill: '',
+        cleaningFee: '',
+        wasteDisposalFee: ''
       }
     }
 
@@ -43,23 +46,23 @@ class AddRent extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                           <div class="form-group">
                             <label>คำอธิบายเพิ่มเติม</label>
-                            <input type="text" name="typeID" class="form-control" placeholder="เช่น ค่าไฟหน่วยละ 5.5 บาท ค่าน้ำหน่วยละ 11 บาท" onChange={this.handleChange} required />
+                            <input type="text" name="rentalDetail" class="form-control" placeholder="เช่น ค่าไฟหน่วยละ 5.5 บาท ค่าน้ำหน่วยละ 11 บาท" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>ค่าน้ำ</label>
-                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
+                            <input type="text" name="waterBill" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>ค่าไฟ</label>
-                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
+                            <input type="text" name="electricityBill" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>ค่ากำจัดขยะ</label>
-                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
+                            <input type="text" name="cleaningFee" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>ค่าทำความสะอาด</label>
-                            <input type="text" name="typeName" class="form-control" onChange={this.handleChange} required />
+                            <input type="text" name="wasteDisposalFee" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>

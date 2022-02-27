@@ -10,7 +10,8 @@ class Shop extends React.Component{
         super(props);
         this.state = {
           data: [{
-            title: ""
+            shopName: "" ,
+            shopPhone: ""
           }]
         }
       }
@@ -50,14 +51,14 @@ class Shop extends React.Component{
                             <tr>
                                 <th></th>
                                 <th>ร้านค้า</th>
-                                <th>ชื่อผู้ประกอบการ</th>
+                                <th>เบอร์โทร</th>
                             </tr>
                             {this.state.data.map(item => (
                             // <form onSubmit={this.handleSubmit}> 
                             <tr>
                                 <td></td>  
                                 <td>{item.shopName}</td>
-                                <td>{item.name}</td>
+                                <td>{item.shopPhone}</td>
                             </tr>
                             // </form>  
                                 ))}

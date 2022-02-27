@@ -18,8 +18,8 @@ import Register from './pages/Resigter';
 import Singin from './pages/Singin';
 import Edit_Prodct from './pages/Edit_Product';
 // import Profile from './pages/Profile';
-import Women from './pages/WomenProduct';
-import Men from './pages/MenProduct';
+// import Women from './pages/WomenProduct';
+// import Men from './pages/MenProduct';
 import AddShop from './pages/AddShop';
 // import Confirm from './pages/ConfirmPay';
 // import Payment from './pages/Payment';
@@ -30,6 +30,7 @@ import AddTypeFood from './pages/AddTypeFood';
 import AddRent from './pages/AddRent';
 // import Login from './pages/Login';
 import OwnerHome from './pages/OwnerHome';
+import EditType from './pages/EditTypeFood';
 
 class App extends React.Component {
 
@@ -48,15 +49,15 @@ class App extends React.Component {
           </Route>
           <Route path="/edit_products/:product_id" component={Edit_Prodct} />
 
-          <Route path="/product">
+          <Route path="/Product">
             <Product />
           </Route>
-          <Route path="/Women">
+          {/* <Route path="/Women">
             <Women />
           </Route>
           <Route path="/Men">
             <Men />
-          </Route>
+          </Route> */}
           <Route path="/Shop">
             <Shop />
           </Route>
@@ -65,6 +66,9 @@ class App extends React.Component {
           </Route>
           <Route path="/Singin">
             <Singin />
+          </Route>
+          <Route path="/EditType">
+            <EditType />
           </Route>
           {/* <Route path="/Edit_Prodct">
             <Edit_Prodct />

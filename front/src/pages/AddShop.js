@@ -12,7 +12,9 @@ class AddShop extends React.Component {
         shopDetail: '',
         openingTime: '',
         shopType: '',
-        shopRentalContract: ''
+        shopRentalContract: '',
+        shopRentalFee: '',
+        payRent: ''
       }
     }
 
@@ -71,7 +73,7 @@ class AddShop extends React.Component {
                           </div>
                           <div class="form-group">
                             <label>ค่าเช่ารายปี</label>
-                            <input type="text" name="shopRentalContract" class="form-control"  onChange={this.handleChange} required />
+                            <input type="text" name="shopRentalCFee" class="form-control"  onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
                             <label>สถานะการจ่ายค่าเช่า</label><br />

@@ -25,7 +25,7 @@ class AddOwner extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      axios.post('http://localhost:3000/admin/add-user', this.state).then(res => {
+      axios.post('http://localhost:3000/admin/add-member', this.state).then(res => {
         console.log(res);
         alert('Susscess');
       }).catch(error => {

@@ -10,7 +10,7 @@ class Resigter extends React.Component{
         super(props);
         this.state = {
             name: '',
-            tel: '',
+            phone: '',
             username: '',
             password: ''
         }

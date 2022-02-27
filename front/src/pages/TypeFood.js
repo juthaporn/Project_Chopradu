@@ -41,11 +41,13 @@ class TypeFood extends React.Component{
                                 <table className="table">
                                     <tr>
                                         <th></th>
+                                        <th></th>
                                         <th><a href='/AddTypeFood' button type="submit" class="btn btn-primary">เพิ่มข้อมูล</a></th>
                                     </tr>
                                     <tr>
                                         <th>รหัสประเภทอาหาร</th>
                                         <th>ชื่อประเภทอาหาร</th>
+                                        <th><a href='/EditType' button type="submit" class="btn btn-primary">แก้ไข</a></th>
                                     </tr>
                                     {this.state.data.map(item => (
                                     // <form onSubmit={this.handleSubmit}> 
