@@ -2,18 +2,14 @@ const db = require('../util/database');
 
 class shop{
 
-    constructor(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, payRent, 
-        shopRating, shopRentalContract, shopRentalFee, memberID){
+    constructor(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract, memberID){
         this.shopID =shopID;
         this.shopName = shopName;
         this.shopPhone = shopPhone;
         this.shopDetail = shopDetail;
         this.openingTime = openingTime;
         this.shopType = shopType;
-        this.payRent = payRent;
-        this.shopRating = shopRating;
         this.shopRentalContract = shopRentalContract;
-        this.shopRentalFee = shopRentalFee;
         this.memberID = memberID;
     }
 
@@ -24,13 +20,13 @@ class shop{
     save(){
         if(this.shopID){
             return db.execute(
-                'update shop set shopName=?, shopPhone=?, shopDetail=?, openingTime=?, shopType=?, payRent=?, shopRating=?, shopRentalContract=?, shopRentalFee=?, memberID=? where shopID=?',
-                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.payRent, this.shopRating, this.shopRentalContract, this.shopRentalFee, this.memberID, this.shopID]
+                'update shop set shopName=?, shopPhone=?, shopDetail=?, openingTime=?, shopType=?, shopRentalContract=?, memberID=? where shopID=?',
+                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.shopRentalContract, this.memberID, this.shopID]
             );
         }else{
             return db.execute(
-                'insert into shop (shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, shopRentalContract, shopRentalFee, memberID) values(?,?,?,?,?,?,?,?,?,?)',
-                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.payRent, this.shopRating, this.shopRentalContract, this.shopRentalFee, this.memberID]
+                'insert into shop (shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract,  memberID) values(?,?,?,?,?,?,?)',
+                [this.shopName, this.shopPhone, this.shopDetail, this.openingTime, this.shopType, this.shopRentalContract, this.memberID]
             );
         }
     }

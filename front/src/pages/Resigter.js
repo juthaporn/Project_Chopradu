@@ -42,14 +42,14 @@ class Resigter extends React.Component{
                     <div class="row justify-content-center">
                         <div class="col-md-7 col-lg-5">
                             <div class="login-wrap p-4 p-md-5">
-                                <h3 class="mb-4">Sign Up</h3>
+                                <h3 class="mb-4">ลงทะเบียน</h3>
                                 <form onSubmit={this.handleSubmit}>
                                     <div class="form-group">
-                                        <label>Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Name" onChange={this.handleChange} />
+                                        <label>ชื่อผู้ใช้งาน</label>
+                                        <input type="text" name="name" class="form-control" placeholder="ชื่อผู้ใช้งาน" onChange={this.handleChange} />
                                     </div>
                                     <div class="form-group">
-                                        <label>Phone number</label>
+                                        <label>เบอร์โทรศัพท์</label>
                                         <input type="text" name="phone" class="form-control" placeholder="+66" onChange={this.handleChange} />
                                     </div>
                                     <div class="form-group">
@@ -64,7 +64,7 @@ class Resigter extends React.Component{
                                         <button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane"></span></button>
                                     </div>
                                 </form>
-                                <p class="text-center">Already have an account? <Link to="/Singin">Sign In</Link></p>
+                                <p class="text-center">มีบัญชีผู้ใช้งานแล้ว ? <Link to="/Singin">เข้าสู่ระบบ</Link></p>
                             </div>
                         </div>
                     </div>

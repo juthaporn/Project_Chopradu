@@ -31,6 +31,8 @@ import AddRent from './pages/AddRent';
 // import Login from './pages/Login';
 import OwnerHome from './pages/OwnerHome';
 import EditType from './pages/EditTypeFood';
+// import AddProduct from './Page/AddProduct';
+import AddProduct from './pages/AddProduct';
 
 class App extends React.Component {
 
@@ -100,6 +102,12 @@ class App extends React.Component {
           <Route path="/AddRent">
             <AddRent />
           </Route>
+          <Route path="/AddProduct">
+            <AddProduct />
+          </Route>
+          {/* <Route path="/AddProduct">
+            <AddProduct />
+          </Route> */}
           <Route path="/OwnerHome">
             <OwnerHome />
           </Route>

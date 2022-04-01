@@ -55,7 +55,7 @@ class TypeFood extends React.Component{
                                         {/* <td><Link to={"/product"+item.product_id}><img src={""+item.image+""} alt="" ></img></Link></td>   */}
                                         <td>{item.typeID}</td>
                                         <td>{item.typeName}</td>
-                                        <td><a href='/EditType' button type="submit" class="btn btn-primary">แก้ไข</a></td>
+                                        {/* <td><a href='/EditType' button type="submit" class="btn btn-primary">แก้ไข</a></td> */}
                                     </tr>
                                     // </form>  
                                     ))}

@@ -14,10 +14,8 @@ exports.getShop = (req, res, next) => {
 }
 
 exports.createShop = (req, res, next) => {
-    const {shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, 
-        shopRentalContract, shopRentalFee, memberID} = req.body
-    const shop = new Shop(null, shopName, shopPhone, shopDetail, openingTime, shopType, payRent,
-        shopRating, shopRentalContract, shopRentalFee, memberID)
+    const {shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract, memberID} = req.body
+    const shop = new Shop(null, shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract, memberID)
     shop.save().then(() => {
         res.status(200).json({
             "message": "success",
@@ -47,10 +45,8 @@ exports.getEditShop = (req, res, next) => {
 
 exports.editShop = (req, res, next) => {
     console.log(req.body)
-    const {shopID, shopName, shopPhone, shopDetail, openingTime, shopType, payRent, shopRating, 
-        shopRentalContract, shopRentalFee, memberID} = req.body
-    const shop = new Shop(shopID, shopName, shopPhone, shopDetail, openingTime, shopType, 
-        payRent, shopRating, shopRentalContract, shopRentalFee, memberID)
+    const {shopID, shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract, memberID} = req.body
+    const shop = new Shop(shopID, shopName, shopPhone, shopDetail, openingTime, shopType,shopRentalContract, memberID)
     shop.save(shopID).then(() => {
         res.status(200).json({
             "message": "success",
