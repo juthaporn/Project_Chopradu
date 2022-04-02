@@ -21,9 +21,9 @@ exports.createRent = (req, res, next) => {
     // const wasteDisposalFee = req.body.wasteDisposalFee;
     
     // const monthlyRentalFee = new MonthlyRentalFee(null, rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee);
-    const {rentDetail, waterBill, electricityBill, cleaningFee, 
+    const {rentalDetail, waterBill, electricityBill, cleaningFee, 
         wasteDisposalFee, shopID} = req.body
-    const monthlyRentalFee = new MonthlyRentalFee(null, rentDetail, waterBill, 
+    const monthlyRentalFee = new MonthlyRentalFee(null, rentalDetail, waterBill, 
         electricityBill, cleaningFee, wasteDisposalFee, shopID)
     monthlyRentalFee.save().then(() => {
         res.status(200).json({

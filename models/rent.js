@@ -1,10 +1,10 @@
 const db = require('../util/database');
 
-module.exports = class Rent{
+class Rent{
 
-    constructor(rentalID, rentDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee, shopID){
+    constructor(rentalID, rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee, shopID){
         this.rentalID = rentalID;
-        this.rentDetail = rentDetail;
+        this.rentalDetail = rentalDetail;
         this.waterBill = waterBill;
         this.electricityBill = electricityBill;
         this.cleaningFee = cleaningFee;
@@ -20,12 +20,12 @@ module.exports = class Rent{
         if(this.rentalID){
             return db.execute(
                 'update monthlyRentalFee set rentalDetail=?, waterBill=?, electricityBill=?, cleaningFee=?, wasteDisposalFee=?, shopID=? where rentalID = ?',
-                [this.rentalID, this.rentDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.shopID, this.rentalID]
+                [this.rentalID, this.rentalDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.shopID, this.rentalID]
             );
         }else{
             return db.execute(
-               'insert into monthlyRentalFee (rentDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee, shopID) values(?,?,?,?,?,?)',
-               [this.rentDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.shopID]
+               'insert into monthlyRentalFee (rentalDetail, waterBill, electricityBill, cleaningFee, wasteDisposalFee, shopID) values(?,?,?,?,?,?)',
+               [this.rentalDetail, this.waterBill, this.electricityBill, this.cleaningFee, this.wasteDisposalFee, this.shopID]
             );
         }
     }
@@ -45,3 +45,5 @@ module.exports = class Rent{
     //     );
     // }
 }
+
+module.exports = Rent

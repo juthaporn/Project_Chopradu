@@ -4,34 +4,34 @@ import { Link } from 'react-router-dom';
 
 
 class Header extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-          name: '',
-          province: '',
-          image_url: '',
-          description: ''
-        }
-      }
+    // constructor(props){
+    //     super(props);
+    //     this.state = {
+    //       name: '',
+    //       province: '',
+    //       image_url: '',
+    //       description: ''
+    //     }
+    //   }
   
-      handleChange = (e) => {
-        console.log(e.target.name, e.target.value);
-        let name = e.target.name;
-        let value = e.target.value;
-        this.setState({
-          [name]: value
-        });
-      }
+    //   handleChange = (e) => {
+    //     console.log(e.target.name, e.target.value);
+    //     let name = e.target.name;
+    //     let value = e.target.value;
+    //     this.setState({
+    //       [name]: value
+    //     });
+    //   }
   
-      handleSubmit = (e) => {
-        e.preventDefault();
-        axios.post('http://localhost:3000/admin/products', this.state).then(res => {
-          console.log(res);
-          alert('Susscess');
-        }).catch(error => {
-          console.log(error);
-        });
-      }
+    //   handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     axios.post('http://localhost:3000/admin/products', this.state).then(res => {
+    //       console.log(res);
+    //       alert('Susscess');
+    //     }).catch(error => {
+    //       console.log(error);
+    //     });
+    //   }
     render(){
         return(
                 <header>
@@ -45,8 +45,8 @@ class Header extends React.Component{
                                         <div class="main-menu d-none d-lg-block">
                                             <nav>                                                
                                                 <ul id="navigation">  
-                                                    <li><Link to="/Admin">หน้าแรก</Link></li>  
-                                                    <li><Link to="/Shop">ร้านค้า</Link></li>
+                                                    <li><Link to="/Shop">หน้าแรก</Link></li>  
+                                                    {/* <li><Link to="/Shop">ร้านค้า</Link></li> */}
                                                     {/* <li><Link to="/AddRent">ค่าเช่า</Link></li> */}
                                                     <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
 

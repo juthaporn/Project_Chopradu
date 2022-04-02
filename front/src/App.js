@@ -33,6 +33,8 @@ import OwnerHome from './pages/OwnerHome';
 import EditType from './pages/EditTypeFood';
 // import AddProduct from './Page/AddProduct';
 import AddProduct from './pages/AddProduct';
+import AddYearRent from './pages/AddYearRent';
+import ThisShop from './pages/ThisShop';
 
 class App extends React.Component {
 
@@ -105,6 +107,10 @@ class App extends React.Component {
           <Route path="/AddProduct">
             <AddProduct />
           </Route>
+          <Route path="/AddYearRent">
+            <AddYearRent />
+          </Route>
+          <Route path="/ThisShop/:shopID" component={ThisShop} />
           {/* <Route path="/AddProduct">
             <AddProduct />
           </Route> */}

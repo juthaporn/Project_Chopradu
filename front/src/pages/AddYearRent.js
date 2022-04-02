@@ -3,15 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AdminHeader from '../components/AdminHeader';
 
-class AddRent extends React.Component {
+class AddYearRent extends React.Component {
     constructor(props){
       super(props);
       this.state = {
-        rentalDetail: '',
-        waterBill: '',
-        electricityBill: '',
-        cleaningFee: '',
-        wasteDisposalFee: '',
+        rentDetail: '',
+        rentalFee: '',
         shopID: ''
       }
     }
@@ -27,7 +24,7 @@ class AddRent extends React.Component {
 
     handleSubmit = (e) => {
       e.preventDefault();
-      axios.post('http://localhost:3000/admin/add-rent', this.state).then(res => {
+      axios.post('http://localhost:3000/admin/add-yearRent', this.state).then(res => {
         console.log(res);
         alert('Susscess');
       }).catch(error => {
@@ -42,7 +39,7 @@ class AddRent extends React.Component {
                 <div class="container">
                   <div className="row justify-content-center">
                     <div class="col-md-7 col-lg-5">
-                      <h3 class="mb-4">เพิ่มค่าน้ำ - ค่าไฟ</h3>
+                      <h3 class="mb-4">เพิ่มค่าเช่าร้าน</h3>
                         {/* <div className="col-md-6"> */}
                         <form onSubmit={this.handleSubmit}>
                           <div class="form-group">
@@ -51,23 +48,11 @@ class AddRent extends React.Component {
                           </div>
                           <div class="form-group">
                             <label>คำอธิบายเพิ่มเติม</label>
-                            <input type="text" name="rentalDetail" class="form-control" placeholder="เช่น ค่าไฟหน่วยละ 5.5 บาท ค่าน้ำหน่วยละ 11 บาท" onChange={this.handleChange} required />
+                            <input type="text" name="rentDetail" class="form-control" placeholder="เช่น ค่าเช่าร้านประจำปี 2564" onChange={this.handleChange} required />
                           </div>
                           <div class="form-group">
-                            <label>ค่าน้ำ</label>
-                            <input type="text" name="waterBill" class="form-control" onChange={this.handleChange} required />
-                          </div>
-                          <div class="form-group">
-                            <label>ค่าไฟ</label>
-                            <input type="text" name="electricityBill" class="form-control" onChange={this.handleChange} required />
-                          </div>
-                          <div class="form-group">
-                            <label>ค่ากำจัดขยะ</label>
-                            <input type="text" name="cleaningFee" class="form-control" onChange={this.handleChange} required />
-                          </div>
-                          <div class="form-group">
-                            <label>ค่าทำความสะอาด</label>
-                            <input type="text" name="wasteDisposalFee" class="form-control" onChange={this.handleChange} required />
+                            <label>ค่าเช่าร้าน</label>
+                            <input type="text" name="rentalFee" class="form-control" onChange={this.handleChange} required />
                           </div>
                           <br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>
@@ -81,4 +66,4 @@ class AddRent extends React.Component {
     }
 }
 
-export default AddRent;
+export default AddYearRent;

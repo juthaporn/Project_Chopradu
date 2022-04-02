@@ -33,18 +33,18 @@ class shop{
 
     static findById(shopID){
         return db.execute(
-            'select * from shop where shopID = ?',
+            'select * from shop where shopID = ? join member on shop.memberID = member.memberID',
             [shopID]
         );
     }
 
-    // delete Address
-    // static delById(product_id){
-    //     return db.execute(
-    //         'delete from user where user_id = ?',
-    //         [this.user_id]
-    //     );
-    // }
+    // delete shopID
+    static delById(shopID){
+        return db.execute(
+            'delete from shop where shopID = ? ',
+            [shopID]
+        );
+    }
 }
 
 module.exports = shop

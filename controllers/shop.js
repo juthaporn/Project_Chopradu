@@ -62,6 +62,22 @@ exports.editShop = (req, res, next) => {
 
 }
 
+exports.deleteShop = (req, res, next) => {
+    console.log("deleteShop", req.params)
+    const {shopID} = req.params
+    Shop.delById(shopID).then(() => {
+        res.status(200).json({
+            "meessage": "success",
+            "result": true
+        })
+    }).catch((err) => {
+        res.status(500).json({
+            "message": err,
+            "result": false
+        })
+    })
+}
+
 // exports.getEditAddress = (req, res, next) => {
 //     const user_id = req.params.user_id;
 //     User.findById(user_id).then((user) => {

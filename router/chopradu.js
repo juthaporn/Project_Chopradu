@@ -6,6 +6,7 @@ const shopController = require('../controllers/shop');
 const productTypeController = require('../controllers/productType');
 const rentController = require('../controllers/rent');
 const orderController = require('../controllers/order');
+const yearRentController = require('../controllers/yearRent');
 
 //member
 router.get('/member',memberController.getMember);
@@ -27,13 +28,18 @@ router.get('/edit-shop/:shopID', shopController.getEditShop);
 
 router.post('/edit-shop', shopController.editShop);
 
-// // router.get('/delete-shop', shopController.deleteShop);
+router.get('/delete-shop/:shopID', shopController.deleteShop);
 
 
 //rent
 router.get('/rent', rentController.getRent)
 
 router.post('/add-rent',rentController.createRent);
+
+//YearRent
+router.get('/yearRent', yearRentController.getYearRent)
+
+router.post('/add-yearRent',yearRentController.createYearRent);
 
 
 // prodcts

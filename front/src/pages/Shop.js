@@ -11,7 +11,8 @@ class Shop extends React.Component{
         this.state = {
           data: [{
             shopName: "" ,
-            shopPhone: ""
+            shopPhone: "",
+            name: ""
           }]
         }
       }
@@ -36,28 +37,34 @@ class Shop extends React.Component{
               <AdminHeader />
                 <div class="container">
                 <div className="row justify-content-center">
-                <h3 class="mb-4 ">ร้านค้า</h3>
+                {/* <h3 class="mb-4 ">ร้านค้า</h3> */}
                   <div className="col-md-12">
                     <form onSubmit={this.handleSubmit}>
                       <div class="block">
                         <a href='/AddShop' button type="submit" class="btn btn-primary">เพิ่มร้านค้า</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <a href='/AddOwner' button type="submit" class="btn btn-primary">เพิ่มผู้ประกอบการ</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <a href='/AddRent' button type="submit" class="btn btn-primary">เพิ่มค่าเช่าร้าน</a>
+                        <a href='/AddOwner' button type="submit" class="btn btn-primary">เพิ่มผู้ประกอบการ</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href='/AddRent' button type="submit" class="btn btn-primary">เพิ่มค่าน้ำ-ค่าไฟ</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href='/AddYearRent' button type="submit" class="btn btn-primary">เพิ่มค่าเช่าร้าน</a>
                       </div>
                        
-                        <table className="table">
+                        <table className="table text-center">
                             <br></br>
                             <tr>
-                                <th></th>
+                                {/* <th></th> */}
                                 <th>ร้านค้า</th>
+                                <th>ชื่อผู้ประกอบการ</th>
                                 <th>เบอร์โทร</th> 
                             </tr>
                             {this.state.data.map(item => (
                             // <form onSubmit={this.handleSubmit}> 
                             <tr>
-                                <td></td>  
+                                {/* <td></td>   */}
                                 <td>{item.shopName}</td>
+                                <td>{item.name}</td>
                                 <td>{item.shopPhone}</td>
+                                {/* <td>
+                                  <a href={'/ThisShop/'+item.shopID} button type="submit" class="btn btn-primary">ข้อมูล</a>
+                                </td> */}
                             </tr>
                             // </form>  
                                 ))}

@@ -57,7 +57,7 @@ class Signin extends React.Component{
                             <input name="password" type="password" class="form-control" placeholder="Password" required />
                         </div>
                         <div class="form-group d-flex justify-content-end mt-5">
-                            <a href='/Admin' button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane"> </span></a>
+                            <a href='/Shop' button type="submit" class="btn btn-primary"><span class="fa fa-paper-plane"> </span></a>
                         </div>
                     </form>
                     <p class="text-center">ไม่มีบัญชีผู้ใช้งาน? <Link to="/Register">ลงทะเบียน</Link></p>

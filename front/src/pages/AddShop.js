@@ -72,7 +72,7 @@ class AddShop extends React.Component {
                           </div>
                           <div class="form-group">
                             <label>รหัสผู้ประกอบการ</label>
-                            <input type="text" name="memberID" class="form-control" placeholder="3" onChange={this.handleChange} required />
+                            <input type="text" name="memberID" class="form-control" placeholder="รหัสผู้ประกอบการ" onChange={this.handleChange} required />
                           </div>
                           <br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>

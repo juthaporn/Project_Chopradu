@@ -21,6 +21,7 @@ class member{
                 [this.username, this.password, this.name, this.phone, this.memberID]
             );
         }else{
+            console.log("else", this)
             return db.execute(
                 "insert into member (username, password, name, phone) values(?,?,?,?)",
                 [this.username, this.password, this.name, this.phone]
