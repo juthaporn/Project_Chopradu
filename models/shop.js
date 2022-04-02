@@ -14,7 +14,7 @@ class shop{
     }
 
     static findAll(){
-        return db.execute("select * from shop");
+        return db.execute("select * from shop join member on shop.memberID = member.memberID");
     }
 
     save(){

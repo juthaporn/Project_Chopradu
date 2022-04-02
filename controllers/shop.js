@@ -16,6 +16,7 @@ exports.getShop = (req, res, next) => {
 exports.createShop = (req, res, next) => {
     const {shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract, memberID} = req.body
     const shop = new Shop(null, shopName, shopPhone, shopDetail, openingTime, shopType, shopRentalContract, memberID)
+    console.log("createshop", req.body)
     shop.save().then(() => {
         res.status(200).json({
             "message": "success",

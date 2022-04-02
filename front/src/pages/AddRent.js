@@ -11,7 +11,8 @@ class AddRent extends React.Component {
         waterBill: '',
         electricityBill: '',
         cleaningFee: '',
-        wasteDisposalFee: ''
+        wasteDisposalFee: '',
+        shopID: ''
       }
     }
 
@@ -44,6 +45,10 @@ class AddRent extends React.Component {
                       <h3 class="mb-4">เพิ่มค่าเช่าร้าน</h3>
                         {/* <div className="col-md-6"> */}
                         <form onSubmit={this.handleSubmit}>
+                          <div class="form-group">
+                            <label>รหัสร้านค้า</label>
+                            <input type="text" name="shopID" class="form-control" placeholder="รหัสร้านค้า" onChange={this.handleChange} required />
+                          </div>
                           <div class="form-group">
                             <label>คำอธิบายเพิ่มเติม</label>
                             <input type="text" name="rentalDetail" class="form-control" placeholder="เช่น ค่าไฟหน่วยละ 5.5 บาท ค่าน้ำหน่วยละ 11 บาท" onChange={this.handleChange} required />

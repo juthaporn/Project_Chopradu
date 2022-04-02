@@ -45,17 +45,17 @@ class Header extends React.Component{
                                         <div class="main-menu d-none d-lg-block">
                                             <nav>                                                
                                                 <ul id="navigation">  
-                                                    <li><Link to="/">Home</Link></li>
-                                                    <li><Link to="/create">Creat</Link></li>    
+                                                   <li><Link to="/">หน้าแรก</Link></li>
+                                                     {/* <li><Link to="/create">Creat</Link></li>    
                                                     <li><Link to="/product">Product</Link>
-                                                    </li>
+                                                    </li> */}
                                                 </ul>
                                             </nav>
                                         </div>
                                         <div class="header-right">
                                             <ul>
-                                                <li><input type="text" name="description" class="form-control" placeholder="Search.." onChange={this.handleChange} /></li>
-                                                <li><span class="flaticon-search"></span></li>
+                                                {/* <li><input type="text" name="description" class="form-control" placeholder="Search.." onChange={this.handleChange} /></li>
+                                                <li><span class="flaticon-search"></span></li> */}
                                                 {/* <li> <button type ="submit" name="submit" class="btn btn-primary btn-block">Search</button></li> */}
                                                 {/* <li><a href="/basket"><span class="flaticon-shopping-cart"></span></a> </li> */}
                                                 <li> <Link to="/Singin">Sign In</Link></li>

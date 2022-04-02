@@ -10,7 +10,11 @@ class AdminHome extends React.Component{
         super(props);
         this.state = {
           data: [{
-            title: ""
+            shopName: "" ,
+            shopPhone: "",
+            shopDetail: "",
+            openingTime: "",
+            name: ""
           }]
         }
       }
@@ -21,7 +25,7 @@ class AdminHome extends React.Component{
   
       getData = () => {
         var x = this;
-        axios.get("http://localhost:3000/admin/products").then((res) => {
+        axios.get("http://localhost:3000/admin/shop").then((res) => {
           this.setState({data: res.data.data});
           // x.setState({data: res.data.data});
         }).catch((error) => {
@@ -33,34 +37,27 @@ class AdminHome extends React.Component{
         return(
             <main>
               <AdminHeader />
-                {/* <div class="container">
-                <div className="row">
-                  <div className="col-md-12">
-                    <form onSubmit={this.handleSubmit}>
-                      <table className="table">
-                        <tr>
-                          <th></th>
-                          <th>Name</th>
-                          <th>Brand</th>
-                          <th>Color</th>
-                          <th>Price</th>
-                        </tr>
-                        {this.state.data.map(item => (
-                        // <form onSubmit={this.handleSubmit}> 
-                          <tr>
-                            <td><Link to={"/product"+item.product_id}><img src={""+item.image+""} alt="" ></img></Link></td>  
-                            <td>{item.product_name}</td>
-                            <td>{item.brand}</td>
-                            <td>{item.color}</td>
-                            <td>{item.price}</td>
+                <div class="container">
+                  <div className="row">
+                    {this.state.data.map(item => (
+                      <div class="box-model">
+                        {/* <table>
+                          <tr> 
+                          <td> */}
+                            {item.shopName}
+                            {/* {item.name} */}
+                          {/*   </td>
+                          <td>{item.shopPhone}</td>
+                          <td>{item.shopDetail}</td>
+                          <td>{item.openingTime}</td>
+                          
                           </tr>
-                        // </form>  
-                        ))}
-                    </table>
-                    </form>
+                        </table> */}
+
+                      </div> 
+                    ))}
                   </div>
-                </div>
-                </div>         */}
+                </div>        
                    
             </main>
             

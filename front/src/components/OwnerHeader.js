@@ -57,8 +57,8 @@ class OwnerHeader extends React.Component{
                                         </div>
                                         <div class="header-right">
                                             <ul>
-                                                <li><input type="text" name="description" class="form-control" placeholder="Search.." onChange={this.handleChange} /></li>
-                                                <li><span class="flaticon-search"></span></li>
+                                                {/* <li><input type="text" name="description" class="form-control" placeholder="Search.." onChange={this.handleChange} /></li>
+                                                <li><span class="flaticon-search"></span></li> */}
                                                 <li><Link to="/"><span class="flaticon-user"></span></Link></li>
                                             </ul>
                                         </div>

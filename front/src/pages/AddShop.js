@@ -12,7 +12,8 @@ class AddShop extends React.Component {
         shopDetail: '',
         openingTime: '',
         shopType: '',
-        shopRentalContract: ''
+        shopRentalContract: '',
+        memberID: ''
       }
     }
 
@@ -68,6 +69,10 @@ class AddShop extends React.Component {
                           <div class="form-group">
                             <label>สัญาเช่าร้าน</label>
                             <input type="text" name="shopRentalContract" class="form-control" placeholder="เช่น 11 มกราคม 2563 - 11 มกราคม 2565" onChange={this.handleChange} required />
+                          </div>
+                          <div class="form-group">
+                            <label>รหัสผู้ประกอบการ</label>
+                            <input type="text" name="memberID" class="form-control" placeholder="3" onChange={this.handleChange} required />
                           </div>
                           <br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>

@@ -47,7 +47,7 @@ class Header extends React.Component{
                                                 <ul id="navigation">  
                                                     <li><Link to="/Admin">หน้าแรก</Link></li>  
                                                     <li><Link to="/Shop">ร้านค้า</Link></li>
-                                                    <li><Link to="/AddRent">ค่าเช่า</Link></li>
+                                                    {/* <li><Link to="/AddRent">ค่าเช่า</Link></li> */}
                                                     <li><Link to="/TypeFood">ประเภทอาหาร</Link></li>
 
                                                     {/* <li><Link to="#">Order</Link></li> */}
@@ -57,8 +57,8 @@ class Header extends React.Component{
                                         </div>
                                         <div class="header-right">
                                             <ul>
-                                                <li><input type="text" name="description" class="form-control" placeholder="Search.." onChange={this.handleChange} /></li>
-                                                <li><span class="flaticon-search"></span></li>
+                                                {/* <li><input type="text" name="description" class="form-control" placeholder="Search.." onChange={this.handleChange} /></li>
+                                                <li><span class="flaticon-search"></span></li> */}
                                                 <li><Link to="/"><span class="flaticon-user"></span></Link></li>
                                             </ul>
                                         </div>

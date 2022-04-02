@@ -2,13 +2,12 @@ const db = require('../util/database');
 
 class member{
 
-    constructor(memberID, username, password, name, phone, status){
+    constructor(memberID, username, password, name, phone){
         this.memberID = memberID;
         this.username = username;
         this.password = password;
         this.name = name;
         this.phone = phone;
-        this.status = status;
     }
 
     static findAll(){
@@ -18,13 +17,13 @@ class member{
     save(){
         if(this.memberID){
             return db.execute(
-                'update member set username=?, password=?, name=?, phone=?, status=? where memberID = ?',
-                [this.username, this.password, this.name, this.phone, this.status, this.memberID]
+                'update member set username=?, password=?, name=?, phone=? where memberID = ?',
+                [this.username, this.password, this.name, this.phone, this.memberID]
             );
         }else{
             return db.execute(
-                "insert into member (username, password, name, phone, status) values(?,?,?,?,?)",
-                [this.username, this.password, this.name, this.phone, this.status]
+                "insert into member (username, password, name, phone) values(?,?,?,?)",
+                [this.username, this.password, this.name, this.phone]
             )
         }
     }

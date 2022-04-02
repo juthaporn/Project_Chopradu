@@ -35,23 +35,24 @@ class TypeFood extends React.Component{
               <AdminHeader/>
                 <div class="container">
                     <div className="row justify-content-center">
-                        <div class="col-md-7 col-lg-5">
-                            <h3 class="mb-4">ประเภทอาหาร</h3>
-                            <form onSubmit={this.handleSubmit}>
-                                <table className="table">
+                        <h3 class="mb-4">ประเภทอาหาร</h3>
+                        <div className="col-md-12">
+                          <form onSubmit={this.handleSubmit}>
+                                <div class="block">
+                                  <a href='/AddTypeFood' button type="submit" class="btn btn-primary">เพิ่มข้อมูล</a>
+                                </div>
+                                <table className="table text-center">
+                                  <br></br>
                                     <tr>
-                                        <th></th>
-                                        <th></th>
-                                        <th><a href='/AddTypeFood' button type="submit" class="btn btn-primary">เพิ่มข้อมูล</a></th>
-                                    </tr>
-                                    <tr>
+                                        {/* <th></th> */}
                                         <th>รหัสประเภทอาหาร</th>
                                         <th>ชื่อประเภทอาหาร</th>
-                                        <th></th>
+                                        {/* <th></th> */}
                                     </tr>
                                     {this.state.data.map(item => (
                                     // <form onSubmit={this.handleSubmit}> 
                                     <tr>
+                                      {/* <td></td> */}
                                         {/* <td><Link to={"/product"+item.product_id}><img src={""+item.image+""} alt="" ></img></Link></td>   */}
                                         <td>{item.typeID}</td>
                                         <td>{item.typeName}</td>
@@ -60,9 +61,9 @@ class TypeFood extends React.Component{
                                     // </form>  
                                     ))}
                                 </table>
-                            </form>
-                        </div>
-                    </div>
+                              </form>
+                          </div>
+                      </div>
                 </div>         
             </main>
         )
