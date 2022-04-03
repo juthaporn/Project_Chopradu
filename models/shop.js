@@ -1,3 +1,4 @@
+// const res = require('express/lib/response');
 const db = require('../util/database');
 
 class shop{
@@ -14,7 +15,7 @@ class shop{
     }
 
     static findAll(){
-        return db.execute("select * from shop join member on shop.memberID = member.memberID");
+        return db.execute("select * from shop join member on shop.memberID = member.memberID ");
     }
 
     save(){
@@ -33,16 +34,25 @@ class shop{
 
     static findById(shopID){
         return db.execute(
-            'select * from shop where shopID = ? join member on shop.memberID = member.memberID',
-            [shopID]
+            // 'select * from shop where shopID = ? join product on shop.shopID = product.shopID',
+            // [shopID]
+            // 'select * from shop where shopID = ?', [shopID]
+            'SELECT * from shop INNER JOIN product on shop.shopID = product.shopID WHERE shop.shopID = ?', [shopID]
         );
     }
 
     // delete shopID
     static delById(shopID){
+        console.log(shopID)
         return db.execute(
-            'delete from shop where shopID = ? ',
-            [shopID]
+            'delete from shop where shopID=? ',
+            [shopID], (err, result) => {
+                if(err){
+                    console.log(err)
+                } else {
+                    res.send(result)
+                }
+            }
         );
     }
 }

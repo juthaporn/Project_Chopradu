@@ -2,79 +2,83 @@ import axios from 'axios';
 import { data } from 'jquery';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AdminHeader from '../components/AdminHeader';
+import Header from '../components/Header';
 
 class ThisShop extends React.Component{
     constructor(props){
         super(props);
+        // this.state = {
+        //   data: [{
+        //     shopID: null,
+        //     shopName: "" ,
+        //     shopPhone: "",
+        //     name: "",
+        //     shopDetail: "",
+        //     openingTime: "",
+        //     productName: "",
+        //     productPrice: ""
+        //   }]
+        // }
         this.state = {
-          data: [{
-            shopID: props.match.params.shopID,
-            shopName: "" ,
-            shopPhone: "",
-            name: "",
-            shopDetail: "",
-            openingTime: ""
-          }]
+          data: [],
+          shopName: ""
         }
       }
   
       componentDidMount(){
-        this.getData()
-      }
-  
-      getData = () => {
-        var x = this;
-        axios.get("http://localhost:3000/admin/shop"+this.state.shopID).then((res) => {
-          this.setState({
-            shopName: data.shopName,
-            shopPhone: data.shopPhone,
-            shopDetail: data.shopDetail,
-            openingTime: data.openingTime,
-            name: data.name,
-          });
-        }).catch((error) => {
-          console.log(error);
-        });
-      }
+        // console.log("thisshop", this.props.match.params.shopID)
+        axios.get("http://localhost:3000/admin/edit-shop/"+this.props.match.params.shopID).then(res => {
+        let data = res.data.data;
+        // console.log(res.data.data[0].shopName);
+        this.setState({data: data})
+        this.setState({shopName: data[0].shopName})
+        // this.setState({
+        //   shopName: data.shopName,
+        //   shopPhone: data.shopPhone,
+        //   shopDetail: data.shopDetail,
+        //   openingTime: data.openingTime,
+        //   name: data.name,
+        //   productName: data.productName,
+        //   productPrice: data.productPrice
+        // });
+        console.log(this.state.shopName)
+        console.log("this.state.data", this.state.data)
+      }).catch(error => {
+        console.log(error);
+      });
+    }
+      
 
     render(){
         return(
             <main>
-              <AdminHeader />
+              <Header />
                 <div class="container">
-                <div className="row justify-content-center">
-                {/* <h3 class="mb-4 ">ร้านค้า</h3> */}
-                  <div className="col-md-12">
-                    <form onSubmit={this.handleSubmit}>  
-                        <table className="table text-center">
-                            <br></br>
-                            <tr>
-                                <th>ร้านค้า</th>
-                                <th>{this.state.shopName}</th>
-                            </tr>
-                            <tr>
-                                <th>ชื่อผู้ประกอบการ</th>
-                                <th>{this.state.name}</th>
-                            </tr>
-                            
-                                <th>เบอร์โทร</th> 
-                            {/* {this.state.data.map(item => ( 
-                            <tr>
-                                <td></td>  
-                                <td>{item.shopName}</td>
-                                <td>{item.name}</td>
-                                <td>{item.shopPhone}</td>
-                                
-                            </tr>
-                                ))} */}
-                            </table>
-                            
-                    </form>
+                  <div className="row">
+                    <div class="box-model justify-content-center">
+                      <h3>{this.state.shopName}</h3>
+                    </div>
+                      
+
+                      {this.state.data.map(item => (
+                          <div class="box-model">
+                            <div class="box-model3">
+
+                            </div>
+                            <div class="box-model5">
+                              {item.productName}
+                            </div>
+                            <div class="box-model5">
+                              {item.productDetail}
+                            </div>
+                            <div class="box-model5">
+                              {item.productPrice} บาท
+                            </div>
+                          </div>
+
+                      ))}
                   </div>
-                </div>
                 </div>        
-                   
             </main>
             
         )

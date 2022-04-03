@@ -56,12 +56,6 @@ class App extends React.Component {
           <Route path="/Product">
             <Product />
           </Route>
-          {/* <Route path="/Women">
-            <Women />
-          </Route>
-          <Route path="/Men">
-            <Men />
-          </Route> */}
           <Route path="/Shop">
             <Shop />
           </Route>
@@ -74,18 +68,6 @@ class App extends React.Component {
           <Route path="/EditType">
             <EditType />
           </Route>
-          {/* <Route path="/Edit_Prodct">
-            <Edit_Prodct />
-          </Route>
-          <Route path="/Profile">
-            <Profile />
-          </Route>
-          <Route path="/Payment">
-            <Payment />
-          </Route>
-          <Route path="/Confirm">
-            <Confirm />
-          </Route> */}
           <Route path="/Admin">
             <Admin />
           </Route>

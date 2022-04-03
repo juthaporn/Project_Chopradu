@@ -32,6 +32,7 @@ exports.createShop = (req, res, next) => {
 
 exports.getEditShop = (req, res, next) => {
     const {shopID} = req.params;
+    console.log("getEditshop", shopID)
     Shop.findById(shopID).then((shop) => {
         res.status(200).json({
             "message": "success",

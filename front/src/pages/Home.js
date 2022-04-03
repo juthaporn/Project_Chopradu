@@ -10,11 +10,12 @@ class Home extends React.Component{
     super(props);
     this.state = {
       data: [{
-        shopName: "" ,
-        shopPhone: "",
-        shopDetail: "",
-        openingTime: "",
-        name: ""
+        data: []
+        // shopName: "" ,
+        // shopPhone: "",
+        // shopDetail: "",
+        // openingTime: "",
+        // name: ""
       }]
     }
   }
@@ -42,19 +43,19 @@ class Home extends React.Component{
                   <div className="row">
                     {this.state.data.map(item => (
                       <div class="box-model">
-                        {/* <table>
-                          <tr> 
-                          <td> */}
-                            {item.shopName}
-                            {/* {item.name} */}
-                          {/*   </td>
-                          <td>{item.shopPhone}</td>
-                          <td>{item.shopDetail}</td>
-                          <td>{item.openingTime}</td>
+                        <div class="box-model3">
                           
-                          </tr>
-                        </table> */}
-
+                        </div>
+                        <div class="box-model2">
+                          <a href={'/ThisShop/'+item.shopID}><h6>{item.shopName}</h6></a>
+                        </div>
+                        <div class="box-model2">
+                          {item.shopType}
+                        </div>
+                        <div class="box-model2">
+                          เวลาเปิด - ปิด {item.openingTime}
+                        </div>
+                        
                       </div> 
                     ))}
                   </div>

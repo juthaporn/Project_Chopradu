@@ -25,8 +25,21 @@ class Shop extends React.Component{
         var x = this;
         axios.get("http://localhost:3000/admin/shop").then((res) => {
           this.setState({data: res.data.data});
+          console.log(this.state.data)
           // x.setState({data: res.data.data});
         }).catch((error) => {
+          console.log(error);
+        });
+      }
+
+      handleDelete = (shopID) => {
+        console.log(shopID);
+        axios.get('http://localhost:3000/admin/delete-shop/'+shopID).then(res => {
+          console.log(res.data);
+          if(res.data.result){
+            this.getData();
+          }
+        }).catch(error => {
           console.log(error);
         });
       }
@@ -58,10 +71,14 @@ class Shop extends React.Component{
                             {this.state.data.map(item => (
                             // <form onSubmit={this.handleSubmit}> 
                             <tr>
-                                {/* <td></td>   */}
+                                {/* <td>{item.productName}</td>   */}
                                 <td>{item.shopName}</td>
                                 <td>{item.name}</td>
                                 <td>{item.shopPhone}</td>
+
+                                {/* <td>
+                                  <button className='btn btn-danger' onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.handleDelete(item.shopID)}}>Delete</button>
+                                </td> */}
                                 {/* <td>
                                   <a href={'/ThisShop/'+item.shopID} button type="submit" class="btn btn-primary">ข้อมูล</a>
                                 </td> */}
