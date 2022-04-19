@@ -13,7 +13,8 @@ class AddShop extends React.Component {
         openingTime: '',
         shopType: '',
         shopRentalContract: '',
-        memberID: ''
+        memberID: '',
+        data: []
       }
     }
 
@@ -23,6 +24,16 @@ class AddShop extends React.Component {
       let value = e.target.value;
       this.setState({
         [name]: value
+      });
+    }
+
+    getData = () => {
+      var x = this;
+      axios.get("http://localhost:3000/admin/member").then((res) => {
+        this.setState({data: res.data.data});
+        console.log(this.state.data)
+      }).catch((error) => {
+        console.log(error);
       });
     }
 
@@ -72,7 +83,15 @@ class AddShop extends React.Component {
                           </div>
                           <div class="form-group">
                             <label>รหัสผู้ประกอบการ</label>
-                            <input type="text" name="memberID" class="form-control" placeholder="รหัสผู้ประกอบการ" onChange={this.handleChange} required />
+                            
+                            {/* {this.state.data.map(item => ( 
+                              // {/* <input type="text" name="name" class="form-control" onChange={this.handleChange} value = required /> 
+                              // <div class="dropdown-menu" aria-labelledby ='dropdownMenu'>
+                              //   <a class="dropdown-menu">{item.name}</a>
+                              // </div>*/}
+                              
+                              {/* <h6>{item.name}ll</h6> */}
+                            {/* ))}   */}
                           </div>
                           <br />
                           <button type="submit" class="btn btn-primary">บันทึก</button>
