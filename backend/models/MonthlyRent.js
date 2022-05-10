@@ -41,4 +41,4 @@ class MonthlyRent{
 
 }
 
-module.exports = MonthlyRentnbh
+module.exports = MonthlyRent
