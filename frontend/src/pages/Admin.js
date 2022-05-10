@@ -17,7 +17,7 @@ class Admin extends React.Component{
             <div class ="container">      
                 <div class="box-title-head">
                     <div class="row">
-                        <div class="col-xl-12">
+                        <div class="col-12">
                             <div class="title-head text-center">
                                 Shop    
                             </div>
