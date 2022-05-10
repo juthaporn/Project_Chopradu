@@ -1,0 +1,103 @@
+import axios from 'axios';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+class AddShop extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        shopName: '',
+        shopPhone: '',
+        shopDetail: '',
+        openingTime: '',
+        shopType: '',
+        shopRentalContract: '',
+        name: ''
+      }
+    }
+
+    handleChange = (e) => {
+      console.log(e.target.name, e.target.value);
+      let name = e.target.name;
+      let value = e.target.value;
+      this.setState({
+        [name]: value
+      });
+    }
+
+    // getData = () => {
+    //   var x = this;
+    //   axios.get("http://localhost:3000/admin/member").then((res) => {
+    //     this.setState({data: res.data.data});
+    //     console.log(this.state.data)
+    //   }).catch((error) => {
+    //     console.log(error);
+    //   });
+    // }
+
+    // handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   axios.post('http://localhost:3000/admin/add-shop', this.state).then(res => {
+    //     console.log(res);
+    //     alert('Susscess');
+    //   }).catch(error => {
+    //     console.log(error);
+    //   });
+    // }
+    
+    render(){
+        return(
+          <main>
+            <div class="container">
+              <div className="row">
+                <div class="col-lg-6">
+                  <br />
+                  <img class="card-img" src="img/video/big.png" alt="" />
+                </div>
+                <div class="col-lg-6">
+                  <h2 class="contact-title">เพิ่มร้านค้า</h2>
+                  <form class="form-contact contact_form" onSubmit={this.handleSubmit}>
+                    <div class="form-group">
+                      <label>ชื่อร้าน</label>
+                      <input  class="form-control"  name="shopName" placeholder="ชื่อร้าน" onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <label>เบอร์โทร</label>
+                      <input  class="form-control" name="shopPhone" placeholder="+66" onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <label>คำอธิบายร้านค้า</label>
+                      <input class="form-control" name="shopDetail" placeholder="คำอธิบายร้านค้า" onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <label>เวลาเปิด-ปิด</label>
+                      <input class="form-control" name="openingTime" placeholder="เช่น 10.00 - 12.00 " onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <label>ประเภทร้านค้า</label>
+                      <input class="form-control" name="shopType" placeholder="เช่น น้ำ ผลไม้" onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <label>สัญาเช่าร้าน</label>
+                      <input class="form-control" name="shopRentalContract" placeholder="เช่น 11 มกราคม 2563 - 11 มกราคม 2565" onChange={this.handleChange} required />
+                    </div>
+                    <div class="form-group">
+                      <label>ชื่อผู้ประกอบการ</label>
+                      {/* <input type="text" name="name" class="form-control" onChange={this.handleChange} required />  */}
+                      <select id='name'>
+                        <option value={this.name}></option>
+                      </select>
+                    </div>
+                    <div class="form-group text-center">
+                      <button type="submit" class="button button-contactForm btn_4 boxed-btn">บันทึก</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </main>
+        )
+    }
+}
+
+export default AddShop;
