@@ -14,4 +14,10 @@ app.get("/test", function (req, res) {
     res.json({"message": "hello world"});
 })
 
+const member = require('./routes/member')
+const shop = require('./routes/shop')
+
+app.use("/member", member)
+app.use('/shop', shop)
+
 app.listen(3000); 
